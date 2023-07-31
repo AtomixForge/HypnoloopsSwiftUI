@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */; };
-		E855B3042A773554009221E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855B3032A773554009221E8 /* ContentView.swift */; };
+		E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855B3032A773554009221E8 /* AuthenticationView.swift */; };
 		E855B3062A773557009221E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E855B3052A773557009221E8 /* Assets.xcassets */; };
 		E855B3092A773557009221E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E855B3082A773557009221E8 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		E855B2FE2A773554009221E8 /* HypnoloopsSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnoloopsSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoloopsSwiftUIApp.swift; sourceTree = "<group>"; };
-		E855B3032A773554009221E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E855B3032A773554009221E8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		E855B3052A773557009221E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E855B3082A773557009221E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */,
-				E855B3032A773554009221E8 /* ContentView.swift */,
+				E855B3032A773554009221E8 /* AuthenticationView.swift */,
 				E855B3052A773557009221E8 /* Assets.xcassets */,
 				E855B3072A773557009221E8 /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E855B3042A773554009221E8 /* ContentView.swift in Sources */,
+				E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */,
 				E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
