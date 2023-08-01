@@ -27,8 +27,8 @@ struct AsyncActionButton<Label: View>: View {
 
                 if isPerformingTask {
                     ProgressView()
-                        .frame(maxWidth: 50, maxHeight: 50)
-                        .foregroundStyle(Color.white)
+                        .frame(maxWidth: 16, maxHeight: 16)
+                        .scaleEffect(2.0)
                         .tint(.white)
                 }
             }

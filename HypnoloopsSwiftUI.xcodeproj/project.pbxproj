@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0E7BBCF2A78CDC200DFA24A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E7BBCE2A78CDC200DFA24A /* RecordView.swift */; };
 		E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80606872A78866700090DF2 /* CreateAccountView.swift */; };
 		E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80606892A78889D00090DF2 /* CreateAccountViewModel.swift */; };
 		E806068E2A78939500090DF2 /* AsyncActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806068D2A78939500090DF2 /* AsyncActionButton.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0E7BBCE2A78CDC200DFA24A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		E80606872A78866700090DF2 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		E80606892A78889D00090DF2 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		E806068D2A78939500090DF2 /* AsyncActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncActionButton.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		E855B2F52A773554009221E8 = {
 			isa = PBXGroup;
 			children = (
+				E0E7BBCE2A78CDC200DFA24A /* RecordView.swift */,
 				E855B3002A773554009221E8 /* HypnoloopsSwiftUI */,
 				E855B2FF2A773554009221E8 /* Products */,
 			);
@@ -170,6 +173,7 @@
 				E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */,
 				E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */,
 				E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */,
+				E0E7BBCF2A78CDC200DFA24A /* RecordView.swift in Sources */,
 				E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */,
 				E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */,
 			);
@@ -305,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HypnoloopsSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = QDDDA27M89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -312,6 +317,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,6 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HypnoloopsSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = QDDDA27M89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -340,6 +347,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
