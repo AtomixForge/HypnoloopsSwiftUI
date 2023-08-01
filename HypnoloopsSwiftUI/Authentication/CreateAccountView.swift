@@ -52,9 +52,7 @@ struct CreateAccountView: View {
     }
 
     private var createAccountButton: some View {
-        AsyncActionButton("Create Account") {
-            viewModel.createAccountButtonTapped()
-        }
+        AsyncActionButton("Create Account") {}
         .buttonStyle(.authentication)
     }
 }

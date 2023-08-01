@@ -14,14 +14,22 @@ struct AsyncActionButton<Label: View>: View {
     @State private var isPerformingTask = false
 
     var body: some View {
-        Button(action: performAction, label: {
+        Button(action: {
+            Task {
+                isPerformingTask = true
+                await action()
+                isPerformingTask = false
+            }
+
+        }, label: {
             ZStack {
                 label().opacity(isPerformingTask ? 0 : 1)
 
                 if isPerformingTask {
                     ProgressView()
-                        .frame(maxWidth: 16, maxHeight: 16)
-                        .scaleEffect(0.5)
+                        .frame(maxWidth: 50, maxHeight: 50)
+                        .foregroundStyle(Color.white)
+                        .tint(.white)
                 }
             }
         })
@@ -29,11 +37,11 @@ struct AsyncActionButton<Label: View>: View {
     }
 
     private func performAction() {
-        isPerformingTask = true
         Task {
+            isPerformingTask = true
             await action()
-            isPerformingTask = false
         }
+        isPerformingTask = false
     }
 }
 
@@ -53,5 +61,4 @@ extension AsyncActionButton where Label == Text {
 
 #Preview {
     AsyncActionButton("Test") {}
-        .buttonStyle(.authentication)
 }

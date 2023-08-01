@@ -46,7 +46,7 @@ struct AuthenticationView: View {
 
     private var loginButton: some View {
         AsyncActionButton("Login") {
-            viewModel.loginButtonTapped()
+            await viewModel.loginButtonTapped()
         }
         .buttonStyle(.authentication)
     }
