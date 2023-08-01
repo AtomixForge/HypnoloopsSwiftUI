@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80606872A78866700090DF2 /* CreateAccountView.swift */; };
+		E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80606892A78889D00090DF2 /* CreateAccountViewModel.swift */; };
+		E806068E2A78939500090DF2 /* AsyncActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806068D2A78939500090DF2 /* AsyncActionButton.swift */; };
+		E80606902A78974500090DF2 /* AuthenticationButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806068F2A78974500090DF2 /* AuthenticationButtonStyle.swift */; };
 		E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */; };
 		E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855B3032A773554009221E8 /* AuthenticationView.swift */; };
 		E855B3062A773557009221E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E855B3052A773557009221E8 /* Assets.xcassets */; };
 		E855B3092A773557009221E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E855B3082A773557009221E8 /* Preview Assets.xcassets */; };
+		E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D097812A77556700850A1E /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E80606872A78866700090DF2 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		E80606892A78889D00090DF2 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		E806068D2A78939500090DF2 /* AsyncActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncActionButton.swift; sourceTree = "<group>"; };
+		E806068F2A78974500090DF2 /* AuthenticationButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationButtonStyle.swift; sourceTree = "<group>"; };
 		E855B2FE2A773554009221E8 /* HypnoloopsSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnoloopsSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoloopsSwiftUIApp.swift; sourceTree = "<group>"; };
 		E855B3032A773554009221E8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		E855B3052A773557009221E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E855B3082A773557009221E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E8D097812A77556700850A1E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +61,8 @@
 		E855B3002A773554009221E8 /* HypnoloopsSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E8D097832A77569100850A1E /* Authentication */,
 				E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */,
-				E855B3032A773554009221E8 /* AuthenticationView.swift */,
 				E855B3052A773557009221E8 /* Assets.xcassets */,
 				E855B3072A773557009221E8 /* Preview Content */,
 			);
@@ -65,6 +75,19 @@
 				E855B3082A773557009221E8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E8D097832A77569100850A1E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E855B3032A773554009221E8 /* AuthenticationView.swift */,
+				E80606872A78866700090DF2 /* CreateAccountView.swift */,
+				E806068D2A78939500090DF2 /* AsyncActionButton.swift */,
+				E80606892A78889D00090DF2 /* CreateAccountViewModel.swift */,
+				E8D097812A77556700850A1E /* AuthenticationViewModel.swift */,
+				E806068F2A78974500090DF2 /* AuthenticationButtonStyle.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +106,8 @@
 			dependencies = (
 			);
 			name = HypnoloopsSwiftUI;
+			packageProductDependencies = (
+			);
 			productName = HypnoloopsSwiftUI;
 			productReference = E855B2FE2A773554009221E8 /* HypnoloopsSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +136,9 @@
 				Base,
 			);
 			mainGroup = E855B2F52A773554009221E8;
+			packageReferences = (
+				E8D097842A7757FB00850A1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = E855B2FF2A773554009221E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E806068E2A78939500090DF2 /* AsyncActionButton.swift in Sources */,
+				E80606902A78974500090DF2 /* AuthenticationButtonStyle.swift in Sources */,
+				E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */,
+				E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */,
 				E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */,
+				E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */,
 				E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +375,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E8D097842A7757FB00850A1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = E855B2F62A773554009221E8 /* Project object */;
 }

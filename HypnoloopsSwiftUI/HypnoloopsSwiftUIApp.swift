@@ -11,7 +11,9 @@ import SwiftUI
 struct HypnoloopsSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            AuthenticationView()
+            NavigationView(content: {
+                AuthenticationView()
+            })
         }
     }
 }
