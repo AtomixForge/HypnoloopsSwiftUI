@@ -16,20 +16,13 @@ final class AuthenticationViewModel: ObservableObject {
         print("hi")
     }
     
-    func loginButtonTapped() {
-        var counter = 5
-        
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            if counter > 0 {
-                print(counter)
-                counter -= 1
-            } else {
-                timer.invalidate()
-                print("Countdown completed!")
-            }
+    func loginButtonTapped() async {
+        do {
+            try await Task.sleep(until: .now + .seconds(3), clock: .continuous)
+        } catch {
+            print(error.localizedDescription)
         }
-        
-        // Run the timer on the current run loop to start the countdown
-        RunLoop.current.add(timer, forMode: .common)
+        print("Countdown completed!")
     }
+
 }
