@@ -12,7 +12,7 @@ struct RecordView: View {
     
     var body: some View {
         ZStack {
-            Color.darkBackground
+            Color.hLoopIndigo
                 .edgesIgnoringSafeArea(.all)
                 
             VStack {
@@ -21,8 +21,10 @@ struct RecordView: View {
                         Text("Your First String")
                             .font(.headline)
                             .padding(.vertical, 10)
+                            .foregroundColor(.white)
                         Text("Your Second String")
                             .font(.subheadline)
+                            .foregroundColor(.white)
                     }
                     Spacer()
                     Image(systemName: "waveform.path")
@@ -32,16 +34,17 @@ struct RecordView: View {
                         .padding(.horizontal, 10)
                 }
                 .padding()
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.systemGray5)))
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.darkGray)))
                 .padding(.horizontal, 10)
                     
                 HStack { // Affirmation View
                     Text("This is where the affirmation will be displayed")
                         .font(.subheadline)
                         .padding()
+                        .foregroundColor(.white)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading) // Set width to fill the available space.
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.systemGray5)))
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.darkGray)))
                 .padding(.horizontal, 10)
                     
                 HStack(alignment: .center) { // Record and Play Buttons
@@ -91,13 +94,14 @@ struct RecordView: View {
                     Text("Reverb")
                         .font(.headline)
                         .padding()
+                        .foregroundColor(.white)
                     Slider(value: $sliderValue, in: 0 ... 50, step: 5) {
                         Text("")
                     }
                     .padding()
                 }
                 .frame(minWidth: 0, maxWidth: .infinity) // Set width to fill the available space.
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.systemGray5)))
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.darkGray)))
                 .padding(.all, 10)
                     
                 HStack {
@@ -105,10 +109,11 @@ struct RecordView: View {
                         Text("File Name")
                             .font(.headline)
                             .padding(10)
+                            .foregroundColor(.white)
                                             
                         Spacer()
                     }
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color(.systemGray5)))
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color(.darkGray)))
                     .padding(.all, 10)
                     HStack {
                         Button(action: {
@@ -140,5 +145,12 @@ extension ShapeStyle where Self == Color {
     static var darkBackground: Color {
         Color(red: 0.1, green: 0.1, blue: 0.2)
     }
+    
+    static var hLoopIndigo: Color {
+        Color(red: 0.055, green: 0.075, blue: 0.157)
+    }
+    
+    static var darkGray: Color {
+        Color(red: 0.145, green: 0.157, blue: 0.153)
+    }
 }
-
