@@ -24,11 +24,18 @@ struct CreateAccountView: View {
                 createAccountButton
             }
             .scaledToFit()
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.hlIndigo)
         .navigationBarTitleDisplayMode(.large)
-        .navigationTitle("Create Account")
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Create Account")
+                    .foregroundStyle(Color.white)
+                    .font(.title.weight(.semibold))
+            }
+        }
     }
 
     private var createAccountForm: some View {
