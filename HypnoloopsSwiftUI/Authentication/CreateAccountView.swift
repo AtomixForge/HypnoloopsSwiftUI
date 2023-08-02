@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateAccountView: View {
     @StateObject private var viewModel = CreateAccountViewModel()
-    
+
     var body: some View {
         VStack {
             VStack {
@@ -27,7 +27,7 @@ struct CreateAccountView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.hlIndigo)
+        .background(Color("hlIndigo"))
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -46,17 +46,19 @@ struct CreateAccountView: View {
                 TextField("Password", text: $viewModel.password)
             }
         }
-        .background(Color.hlIndigo)
+        .background(Color("hlIndigo"))
         .scrollContentBackground(.hidden)
         .padding()
     }
 
     private var createAccountButton: some View {
         AsyncActionButton("Create Account") {}
-        .buttonStyle(.authentication)
+            .buttonStyle(.authentication)
     }
 }
 
-#Preview {
-    CreateAccountView()
+struct CreateAccountView_Previews: PreviewProvider {
+    static var previews: some View {
+        CreateAccountView()
+    }
 }

@@ -59,6 +59,8 @@ extension AsyncActionButton where Label == Text {
     }
 }
 
-#Preview {
-    AsyncActionButton("Test") {}
+struct AsyncActionButton_Previews: PreviewProvider {
+    static var previews: some View {
+        AsyncActionButton("Test") {}
+    }
 }
