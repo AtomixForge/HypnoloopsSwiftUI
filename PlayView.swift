@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct PlayView: View {
+  
+    @State private var activeSheet: ActiveSheet?
+    @State private var settingsDetent = PresentationDetent.medium
+    
+    enum ActiveSheet: Identifiable {
+        case settings, soundScape, recordings
+
+        var id: Int {
+            hashValue
+        }
+    }
+
     
     var body: some View {
+        
         VStack {
             VStack {
                 Image(systemName: "waveform.path")
@@ -23,8 +36,8 @@ struct PlayView: View {
                     
                     HStack {
                         Button(action: {
-                            // insert your action here
-                            print("Save button pressed!")
+                            self.activeSheet = .recordings
+                            print("Recordings pressed!")
                         }) {
                             HStack {
                                 Text("Recordings")
@@ -41,12 +54,15 @@ struct PlayView: View {
                         
                         Text("Your recording file here")
                             .font(.subheadline)
+                        
                     }
+                    //.listRowBackground(Color.hLoopIndigo)
+                    
                     
                     HStack {
                         Button(action: {
-                            // insert your action here
-                            print("Save button pressed!")
+                            self.activeSheet = .soundScape
+                            print("Sound Scape pressed!")
                         }) {
                             HStack {
                                 Text("Sound Scape")
@@ -64,65 +80,52 @@ struct PlayView: View {
                         Text("Sound Bowls")
                             .font(.subheadline)
                     }
+                    
                 }
                 
                 Section("Playback controls") {
-                    HStack {
-                        Button(action: {
-                            // insert your action here
-                            print("Settings pressed!")
-                        }) {
-                                Image(systemName: "slider.horizontal.3")
-                        }
-                        .font(.title)
-                        .padding(.horizontal, 5)
-                        .padding(.vertical, 5)
-                        
-                        Spacer()
-                        
-                        Text("7:21") //Need binding for time
-                        Text("/")
-                        Text("21:00")
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // insert your action here
-                            print("Repeat pressed!")
-                        }) {
-                                Image(systemName: "repeat")
-                        }
-                        .font(.title)
-                        .padding(.horizontal, 5)
-                        .padding(.vertical, 5)
+                 HStack {
+                     
+                    Button(action: {
+                        self.activeSheet = .settings
+                        print("Settings pressed!")
+                    }) {
+                        Image(systemName: "slider.horizontal.3")
                     }
-//                    HStack(alignment: .center) {
-//                        Spacer()
-//                        
-//                        Button(action: {
-//                            // insert your action here
-//                            print("Button pressed!")
-//                        }) {
-//                            VStack {
-//                                Text("Play")
-//                                    .font(.headline)
-//                                    .foregroundColor(.white)
-//                                    .padding(5)
-//                                    
-//                                Image(systemName: "play.fill")
-//                                    .font(.title)
-//                                    .foregroundColor(.white)
-//                            }
-//                            .frame(width: 100, height: 100, alignment: .center)
-//                            .padding(.all, 5)
-//                            .background(Circle().fill(Color.blue))
-//                        }
-//                        Spacer()
-//                    }
+                    .font(.title)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 5)
+                    
+                    Spacer()
+                     
+                     Text("7:21") //Need binding for time
+                     Text("/")
+                     Text("21:00")
+                     
+                     Spacer()
+                     
+                     
+                     
+                     Button(action: {
+                         
+                         print("Repeat pressed!")
+                     }) {
+                         Image(systemName: "repeat")
+                     }
+                     .font(.title)
+                     .padding(.horizontal, 5)
+                     .padding(.vertical, 5)
+                     
+                 }
+
                 }
                 
             }
+            
             .listRowInsets(EdgeInsets())
+            //.background(.darkGray)
+            //.scrollContentBackground(.hidden)
+            
             Button(action: {
                 // insert your action here
                 print("Button pressed!")
@@ -132,7 +135,7 @@ struct PlayView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding(5)
-                        
+                    
                     Image(systemName: "play.fill")
                         .font(.title)
                         .foregroundColor(.white)
@@ -140,6 +143,30 @@ struct PlayView: View {
                 .frame(width: 100, height: 100, alignment: .center)
                 .padding(.all, 5)
                 .background(Circle().fill(Color.blue))
+            }
+            
+        }
+        //.background(Color.hLoopIndigo)
+        .sheet(item: $activeSheet) { item in
+            switch item {
+            case .settings:
+                PlaySettingsView()
+                    .presentationDetents(
+                        [.medium, .large],
+                        selection: $settingsDetent
+                    )
+            case .soundScape:
+                SoundScapeView()
+                    .presentationDetents(
+                        [.medium, .large],
+                        selection: $settingsDetent
+                    )
+            case .recordings:
+                SavedRecordingsView()
+                    .presentationDetents(
+                        [.medium, .large],
+                        selection: $settingsDetent
+                    )
             }
         }
     }
