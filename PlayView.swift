@@ -45,8 +45,7 @@ struct PlayView: View {
                             }
                             .font(.headline)
                             .foregroundColor(.white)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
+                            .padding(10)
                             .background(Color.blue)
                             .cornerRadius(8)
                         }
@@ -54,10 +53,8 @@ struct PlayView: View {
                         
                         Text("Your recording file here")
                             .font(.subheadline)
-                        
                     }
                     //.listRowBackground(Color.hLoopIndigo)
-                    
                     
                     HStack {
                         Button(action: {
@@ -70,8 +67,7 @@ struct PlayView: View {
                             }
                             .font(.headline)
                             .foregroundColor(.white)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
+                            .padding(10)
                             .background(Color.blue)
                             .cornerRadius(8)
                         }
@@ -86,15 +82,15 @@ struct PlayView: View {
                 Section("Playback controls") {
                  HStack {
                      
-                    Button(action: {
+                     Button(action: {
                         self.activeSheet = .settings
                         print("Settings pressed!")
                     }) {
                         Image(systemName: "slider.horizontal.3")
                     }
                     .font(.title)
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 5)
+                    .padding(5)
+                    .buttonStyle(.plain)
                     
                     Spacer()
                      
@@ -104,8 +100,6 @@ struct PlayView: View {
                      
                      Spacer()
                      
-                     
-                     
                      Button(action: {
                          
                          print("Repeat pressed!")
@@ -113,15 +107,11 @@ struct PlayView: View {
                          Image(systemName: "repeat")
                      }
                      .font(.title)
-                     .padding(.horizontal, 5)
-                     .padding(.vertical, 5)
-                     
+                     .padding(5)
+                     .buttonStyle(.plain)
                  }
-
                 }
-                
             }
-            
             .listRowInsets(EdgeInsets())
             //.background(.darkGray)
             //.scrollContentBackground(.hidden)
@@ -144,6 +134,7 @@ struct PlayView: View {
                 .padding(.all, 5)
                 .background(Circle().fill(Color.blue))
             }
+            .padding(20)
             
         }
         //.background(Color.hLoopIndigo)

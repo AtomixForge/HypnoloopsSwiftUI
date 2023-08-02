@@ -153,4 +153,8 @@ extension ShapeStyle where Self == Color {
     static var darkGray: Color {
         Color(red: 0.145, green: 0.157, blue: 0.153)
     }
+    
+    static var hlBlue: Color {
+        Color(red: 0.271, green: 0.682, blue: 0.890)
+    }
 }

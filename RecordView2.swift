@@ -16,49 +16,51 @@ struct RecordView2: View {
                 Image(systemName: "waveform.path")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height:150, alignment: .center)
+                    .frame(width: 200, height: 150, alignment: .center)
                     .padding(.horizontal, 10)
+                    .foregroundColor(Color.hlBlue)
             }
             List {
                 Section("Category of affirmation") {
+                    
                     HStack {
                         Text("Your affirmation will display here...")
                             .font(.subheadline)
+                            .foregroundColor(.white)
                     }
-                    //.listRowBackground(Color.hLoopIndigo)
+                    .listRowBackground(Color.darkGray)
                 }
+                .foregroundColor(.hlBlue)
                 
                 Section("Name and save youer recording") {
                     HStack {
                         HStack {
                             Text("File Name")
                                 .font(.subheadline)
-                                //.padding(10)
-                                //.foregroundColor(.white)
-                                                
                             Spacer()
                         }
-                        //.background(RoundedRectangle(cornerRadius: 10).fill(Color(.darkGray)))
-                        //.padding(.leading, 10)
+                        .foregroundColor(.white)
                         .padding(.trailing, 5)
                         
                         HStack {
                             Button(action: {
                                 // insert your action here
-                                print("Save button pressed!")
+                                print("Saev pressed!")
                             }) {
                                 Text("Save")
                                     .font(.headline)
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 10)
-                                    .background(Color.blue)
+                                    .background(Color.hlBlue)
                                     .cornerRadius(8)
                             }
+                            .buttonStyle(.plain)
                         }
-                        //.padding(.trailing, 10)
                     }
+                    .listRowBackground(Color.darkGray)
                 }
+                .foregroundColor(.hlBlue)
                 
                 Section("This may be deleted") {
                     HStack {
@@ -72,12 +74,17 @@ struct RecordView2: View {
                         }
                         //.padding()
                     }
+                    .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: .infinity) // Set width to fill the available space.
                     //.background(RoundedRectangle(cornerRadius: 10).fill(Color(.darkGray)))
                     //.padding(.all, 10)
-                       
+                    .listRowBackground(Color.darkGray)
                 }
+                .foregroundColor(.hlBlue)
             }
+            .background(.hLoopIndigo)
+            .scrollContentBackground(.hidden)
+            
             HStack(alignment: .center) { // Record and Play Buttons
                 Button(action: {
                     // insert your action here
@@ -115,12 +122,13 @@ struct RecordView2: View {
                     }
                     .frame(width: 100, height: 100, alignment: .center)
                     .padding(.all, 5)
-                    .background(Circle().fill(Color.blue))
+                    .background(Circle().fill(Color.hlBlue))
                 }
                 .padding(.horizontal, 10)
             }
             .padding(.top, 20)
         }
+        .background(Color.hLoopIndigo)
     }
 }
 
