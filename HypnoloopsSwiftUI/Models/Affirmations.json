@@ -1,6 +1,6 @@
 [
     {
-        "headerTitle": "Health and Healing",
+        "title": "Health and Healing",
         "categories": [
             {
                 "title": "Divine Healing",
@@ -159,7 +159,7 @@
         ]
     },
     {
-        "headerTitle": "Love",
+        "title": "Love",
         "categories": [
             {
                 "title": "Attracting Love",
@@ -228,7 +228,7 @@
         ]
     },
     {
-        "headerTitle": "Finance",
+        "title": "Finance",
         "categories": [
             {
                 "title": "Abundance",
@@ -441,7 +441,7 @@
         ]
     },
     {
-        "headerTitle": "Mental Health",
+        "title": "Mental Health",
         "categories": [
             {
                 "title": "Healing From Mental Illness",

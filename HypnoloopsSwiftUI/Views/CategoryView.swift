@@ -7,11 +7,22 @@
 
 import SwiftUI
 
-struct CategoryView: View { 
-    
+struct CategoryView: View {
+    @State private var sections: [Section] = []
+
+    init() {
+        Task {
+            do {
+                sections = try await FileImportManager.shared.loadJSON()
+            } catch {
+                throw error
+            }
+        }
+    }
+
     var body: some View {
         VStack {
-            HStack{
+            HStack {
                 Text("Category stuff")
                     .navigationTitle("Categories")
             }
@@ -27,3 +38,25 @@ struct CategoryView_Previews: PreviewProvider {
         CategoryView()
     }
 }
+
+/*
+  [
+     {
+         "section": "Finance",
+         "categories": [
+             {
+                 "title": "Abundance",
+                 "affirmations": [
+                     {
+                         "id": "abundance_3",
+                         "affirmation": "Abundance is my birthright"
+                     },
+                     ...
+                 ]
+             },
+             ...
+         ]
+     },
+     ...
+ ]
+  */
