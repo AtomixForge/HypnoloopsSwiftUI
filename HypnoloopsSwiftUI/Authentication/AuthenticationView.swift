@@ -23,7 +23,7 @@ struct AuthenticationView: View {
             .scaledToFit()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.hlIndigo)
+        .background(Color("hlIndigo"))
     }
 
     private var logoImage: some View {
@@ -40,7 +40,7 @@ struct AuthenticationView: View {
                 TextField("Password", text: $viewModel.password)
             }
         }
-        .background(Color.hlIndigo)
+        .background(Color("hlIndigo"))
         .scrollContentBackground(.hidden)
     }
 
@@ -60,6 +60,10 @@ struct AuthenticationView: View {
     }
 }
 
-#Preview {
-    AuthenticationView()
+
+struct Authentication_Previews: PreviewProvider {
+    static var previews: some View {
+        AuthenticationView()
+    }
 }
+    

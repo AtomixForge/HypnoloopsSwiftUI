@@ -15,7 +15,7 @@ struct AuthenticationButtonStyle: ButtonStyle {
             .frame(maxWidth: 250)
             .padding(.horizontal, 12)
             .padding(.vertical)
-            .background(Color.hlPurple)
+            .background(Color("hlPurple"))
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
 
