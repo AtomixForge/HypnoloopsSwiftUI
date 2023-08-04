@@ -12,7 +12,7 @@ struct HypnoloopsSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView(content: {
-                PlayView()
+                CategoryView()
             })
         }
     }
