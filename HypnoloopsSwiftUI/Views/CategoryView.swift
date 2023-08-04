@@ -29,7 +29,7 @@ struct CategoryView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.hLoopIndigo)
+//        .background(Color.hLoopIndigo)
         .navigationTitle("Category View")
     }
 }
