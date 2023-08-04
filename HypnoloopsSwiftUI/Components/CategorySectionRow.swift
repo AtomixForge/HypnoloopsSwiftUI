@@ -14,7 +14,7 @@ struct CategorySectionRow: View {
         VStack(alignment: .leading) {
             Text(section.title)
                 .font(.title)
-                .foregroundColor(.primary)
+                .foregroundStyle(Color.white)
                 .padding(.leading)
 
             ScrollView(.horizontal, showsIndicators: false) {
