@@ -7,41 +7,9 @@
 
 import Foundation
 
-class FileImportManager {
-    private init() {}
-    static let shared = FileImportManager()
+class DataImportManager: DataImportManageable {
+    
 
-    //    func loadJSON() async throws -> [Section] {
-    //        guard let url = Bundle.main.url(forResource: "Affirmations", withExtension: "json") else {
-    //            throw NSError(domain: "com.hypnoloops", code: 419)
-    //        }
-    //
-    //        let (data, _) = try await URLSession.shared.data(from: url)
-    //
-    //        do {
-    //            let decoder = JSONDecoder()
-    //            let sections = try decoder.decode([Section].self, from: data)
-    //            return sections
-    //        } catch {
-    //            throw error
-    //        }
-    //    }
-
-    //    func parseJSON() -> [CategorySection] {
-    //        guard let fileURL = Bundle.main.url(forResource: "Affirmations", withExtension: "json") else {
-    //            print("Error locating Affirmations.json file.")
-    //            return []
-    //        }
-    //
-    //        do {
-    //            let data = try Data(contentsOf: fileURL)
-    //            let sections = try JSONDecoder().decode([CategorySection].self, from: data)
-    //            return sections
-    //        } catch {
-    //            print("Error decoding JSON: \(error)")
-    //            return []
-    //        }
-    //    }
 
     func parseJSON() -> [CategorySection] {
         guard let fileURL = Bundle.main.url(forResource: "Affirmations", withExtension: "json") else {
