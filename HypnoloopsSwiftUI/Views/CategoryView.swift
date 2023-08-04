@@ -18,10 +18,7 @@ struct CategoryView: View {
         VStack {
             ScrollView(showsIndicators: false) {
                 ForEach(viewModel.sections, id: \.self) { section in
-                    HStack {
-                        Text(section.title)
-                    }
-                    .frame(height: 200)
+                    CategorySectionRow(section: section)
                 }
             }
             .onAppear {
@@ -29,7 +26,7 @@ struct CategoryView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .background(Color.hLoopIndigo)
+        .background(Color.hLoopIndigo)
         .navigationTitle("Category View")
     }
 }

@@ -100,6 +100,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		4D46631C2A7D5AD700C00520 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */,
+				4D2C83DD2A7C4A580033834B /* DataImportManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E855B2F52A773554009221E8 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +128,7 @@
 		E855B3002A773554009221E8 /* HypnoloopsSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				4D46631C2A7D5AD700C00520 /* Utilities */,
 				4D4663192A7D4A1700C00520 /* Components */,
 				4D2C83D82A7C28F00033834B /* Models */,
 				4D2C83D22A7C22BF0033834B /* Views */,
@@ -126,8 +136,6 @@
 				E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */,
 				E855B3052A773557009221E8 /* Assets.xcassets */,
 				E855B3072A773557009221E8 /* Preview Content */,
-				4D2C83DD2A7C4A580033834B /* DataImportManager.swift */,
-				E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */,
 			);
 			path = HypnoloopsSwiftUI;
 			sourceTree = "<group>";

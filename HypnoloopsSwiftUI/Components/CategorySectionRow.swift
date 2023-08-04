@@ -11,19 +11,39 @@ struct CategorySectionRow: View {
     var section: CategorySection
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(section.title)
-                .font(.headline)
+                .font(.title)
                 .foregroundColor(.primary)
-                .padding()
+                .padding(.leading)
 
-
-            ForEach(section.categories, id: \.self) { category in
-                Text(category.title)
-                    .foregroundColor(.secondary)
-                    .padding(.leading)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(section.categories, id: \.self) { category in
+                        CategoryItem(category: category)
+                    }
+                }
             }
         }
+    }
+}
+
+struct CategoryItem: View {
+    var category: Category
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(category.title)
+                .foregroundStyle(Color.white)
+        }
+        .frame(width: 150, height: 150)
+        .background(Color.black)
+        .cornerRadius(8)
+        .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(Color.hlBlue, lineWidth: 5)
+            )
+        .padding(.leading, 8)
     }
 }
 
@@ -33,12 +53,10 @@ struct CategorySectionRow_Previews: PreviewProvider {
         let viewModel = CategoryViewModel(dataImportManager: dataImportManager)
         viewModel.loadData()
 
-        return Group {
-            if let section = viewModel.sections.first {
-                CategorySectionRow(section: section)
-            } else {
-                CategorySectionRow(section: CategorySection(title: "Test", categories: []))
-            }
+        if let section = viewModel.sections.first {
+            return CategorySectionRow(section: section)
+        } else {
+            return CategorySectionRow(section: CategorySection(title: "Test", categories: []))
         }
     }
 }
