@@ -12,15 +12,20 @@ struct CategoryView: View {
 
     var body: some View {
         VStack {
-            List(sections, id: \.self) { section in
-                Text(section.title)
+            ScrollView(showsIndicators: false) {
+                ForEach(sections, id: \.self) { section in
+                    HStack {
+                        Text(section.title)
+                    }
+                    .frame(height: 200)
+                }
+            }
+            .onAppear {
+                sections = FileImportManager.shared.parseJSON()
             }
         }
-        .onAppear {
-            sections = FileImportManager.shared.parseJSON()
-        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("hlIndigo"))
+        .background(Color.hLoopIndigo)
         .navigationTitle("Category View")
     }
 }
