@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D2C83D62A7C23320033834B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C83D52A7C23320033834B /* CategoryView.swift */; };
+		4D2C83DA2A7C296F0033834B /* Affirmations.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2C83D92A7C296F0033834B /* Affirmations.json */; };
+		4D2C83DC2A7C46970033834B /* Affirmations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C83DB2A7C46970033834B /* Affirmations.swift */; };
+		4D2C83DE2A7C4A580033834B /* DataImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C83DD2A7C4A580033834B /* DataImportManager.swift */; };
 		E02E77002A7A1944007384CE /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E76FF2A7A1944007384CE /* PlayView.swift */; };
 		E02E77022A7A1950007384CE /* SavedRecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77012A7A1950007384CE /* SavedRecordingsView.swift */; };
 		E02E77042A7A1958007384CE /* SoundScapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77032A7A1958007384CE /* SoundScapeView.swift */; };
@@ -21,10 +25,16 @@
 		E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855B3032A773554009221E8 /* AuthenticationView.swift */; };
 		E855B3062A773557009221E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E855B3052A773557009221E8 /* Assets.xcassets */; };
 		E855B3092A773557009221E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E855B3082A773557009221E8 /* Preview Assets.xcassets */; };
+		E8714E642A7CAD7700D6BF64 /* DataImportManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */; };
+		E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */; };
 		E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D097812A77556700850A1E /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D2C83D52A7C23320033834B /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		4D2C83D92A7C296F0033834B /* Affirmations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Affirmations.json; sourceTree = "<group>"; };
+		4D2C83DB2A7C46970033834B /* Affirmations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affirmations.swift; sourceTree = "<group>"; };
+		4D2C83DD2A7C4A580033834B /* DataImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImportManager.swift; sourceTree = "<group>"; };
 		E02E76FF2A7A1944007384CE /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		E02E77012A7A1950007384CE /* SavedRecordingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRecordingsView.swift; sourceTree = "<group>"; };
 		E02E77032A7A1958007384CE /* SoundScapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundScapeView.swift; sourceTree = "<group>"; };
@@ -40,6 +50,8 @@
 		E855B3032A773554009221E8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		E855B3052A773557009221E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E855B3082A773557009221E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImportManageable.swift; sourceTree = "<group>"; };
+		E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		E8D097812A77556700850A1E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,15 +66,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E855B2F52A773554009221E8 = {
+		4D2C83D22A7C22BF0033834B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				E0E7BBCE2A78CDC200DFA24A /* RecordView.swift */,
 				E02E77092A7AC221007384CE /* RecordView2.swift */,
 				E02E76FF2A7A1944007384CE /* PlayView.swift */,
+				4D2C83D52A7C23320033834B /* CategoryView.swift */,
+				E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */,
 				E02E77012A7A1950007384CE /* SavedRecordingsView.swift */,
 				E02E77032A7A1958007384CE /* SoundScapeView.swift */,
 				E02E77052A7A195F007384CE /* PlaySettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4D2C83D82A7C28F00033834B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4D2C83D92A7C296F0033834B /* Affirmations.json */,
+				4D2C83DB2A7C46970033834B /* Affirmations.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E855B2F52A773554009221E8 = {
+			isa = PBXGroup;
+			children = (
 				E855B3002A773554009221E8 /* HypnoloopsSwiftUI */,
 				E855B2FF2A773554009221E8 /* Products */,
 			);
@@ -79,10 +109,14 @@
 		E855B3002A773554009221E8 /* HypnoloopsSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				4D2C83D82A7C28F00033834B /* Models */,
+				4D2C83D22A7C22BF0033834B /* Views */,
 				E8D097832A77569100850A1E /* Authentication */,
 				E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */,
 				E855B3052A773557009221E8 /* Assets.xcassets */,
 				E855B3072A773557009221E8 /* Preview Content */,
+				4D2C83DD2A7C4A580033834B /* DataImportManager.swift */,
+				E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */,
 			);
 			path = HypnoloopsSwiftUI;
 			sourceTree = "<group>";
@@ -172,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E855B3092A773557009221E8 /* Preview Assets.xcassets in Resources */,
+				4D2C83DA2A7C296F0033834B /* Affirmations.json in Resources */,
 				E855B3062A773557009221E8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,15 +221,20 @@
 				E806068E2A78939500090DF2 /* AsyncActionButton.swift in Sources */,
 				E80606902A78974500090DF2 /* AuthenticationButtonStyle.swift in Sources */,
 				E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */,
+				4D2C83DC2A7C46970033834B /* Affirmations.swift in Sources */,
 				E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */,
 				E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */,
+				E8714E642A7CAD7700D6BF64 /* DataImportManageable.swift in Sources */,
 				E02E77042A7A1958007384CE /* SoundScapeView.swift in Sources */,
 				E0E7BBCF2A78CDC200DFA24A /* RecordView.swift in Sources */,
+				4D2C83DE2A7C4A580033834B /* DataImportManager.swift in Sources */,
 				E02E77002A7A1944007384CE /* PlayView.swift in Sources */,
+				4D2C83D62A7C23320033834B /* CategoryView.swift in Sources */,
 				E02E770A2A7AC222007384CE /* RecordView2.swift in Sources */,
 				E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */,
 				E02E77022A7A1950007384CE /* SavedRecordingsView.swift in Sources */,
 				E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */,
+				E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */,
 				E02E77062A7A195F007384CE /* PlaySettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
