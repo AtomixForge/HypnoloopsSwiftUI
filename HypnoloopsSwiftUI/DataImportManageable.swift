@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol DataImportManageable {
+    func parseJSON() -> [CategorySection]
+}

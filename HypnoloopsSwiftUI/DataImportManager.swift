@@ -1,5 +1,5 @@
 //
-//  FileImportManager.swift
+//  DataImportManager.swift
 //  HypnoloopsSwiftUI
 //
 //  Created by Kenson Johnson on 8/3/23.
@@ -8,8 +8,6 @@
 import Foundation
 
 class DataImportManager: DataImportManageable {
-    
-
 
     func parseJSON() -> [CategorySection] {
         guard let fileURL = Bundle.main.url(forResource: "Affirmations", withExtension: "json") else {
