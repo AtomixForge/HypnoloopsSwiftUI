@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @State private var sections: [CategorySection] = []
+    @ObservedObject private var viewModel: CategoryViewModel
+
+    init(viewModel: CategoryViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
-                ForEach(sections, id: \.self) { section in
+                ForEach(viewModel.sections, id: \.self) { section in
                     HStack {
                         Text(section.title)
                     }
@@ -21,7 +25,7 @@ struct CategoryView: View {
                 }
             }
             .onAppear {
-                sections = FileImportManager.shared.parseJSON()
+                viewModel.loadData()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -32,6 +36,6 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        CategoryView(viewModel: .init())
     }
 }
