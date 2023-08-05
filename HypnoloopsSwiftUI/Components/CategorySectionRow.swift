@@ -40,10 +40,11 @@ struct CategoryItem: View {
         .background(Color.black)
         .cornerRadius(8)
         .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .strokeBorder(Color.hlBlue, lineWidth: 5)
-            )
+            RoundedRectangle(cornerRadius: 8)
+                .strokeBorder(Color.hlBlue, lineWidth: 5)
+        )
         .padding(.leading, 8)
+        .padding(.bottom, 8)
     }
 }
 
