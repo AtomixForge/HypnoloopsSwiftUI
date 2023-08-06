@@ -18,7 +18,7 @@ struct RecordView2: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 150, alignment: .center)
                     .padding(.horizontal, 10)
-                    .foregroundColor(Color.hlBlue)
+                    .foregroundColor(.hlBlue)
             }
             List {
                 Section("Category of affirmation") {
