@@ -1,0 +1,33 @@
+//
+//  UserData.swift
+//  HypnoloopsSwiftUI
+//
+//  Created by Olijujuan Green on 8/6/23.
+//
+
+import Foundation
+
+struct UserData {
+    var username: String
+    var likedAffirmationIds: [String] = []
+
+    init(username: String, likedAffirmationIds: [String]) {
+        self.username = username
+        self.likedAffirmationIds = likedAffirmationIds
+    }
+
+//
+//    mutating func addLikedAffirmation(affirmationId: String) {
+//        if !self.likedAffirmationIds.contains(affirmationId) {
+//            //NetworkManager.userData!.likedAffirmationIds.append(affirmationId)
+//            self.likedAffirmationIds.append(affirmationId)
+//            NetworkManager.shared.updateLikedAffirmations(likedAffirmationIds: self.likedAffirmationIds)
+//        }
+//    }
+//
+//    mutating func removeLikedAffirmation(affirmationId: String) {
+//        let liked = self.likedAffirmationIds.filter { $0 != affirmationId }
+//        self.likedAffirmationIds = liked
+//        NetworkManager.shared.updateLikedAffirmations(likedAffirmationIds: self.likedAffirmationIds)
+//    }
+}
