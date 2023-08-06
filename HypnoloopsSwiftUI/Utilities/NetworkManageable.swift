@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol NetworkManageable {
+    func fetchUserProfilImageURL() async throws -> URL
+    func fetchCurrentUserData() async throws -> UserData
+    func updateLikedAffirmations(likedAffirmationIds: [String]) async throws
+}
