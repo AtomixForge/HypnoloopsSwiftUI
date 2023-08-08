@@ -33,28 +33,13 @@ struct AuthenticationView: View {
                                 .padding()
                                 .background(Color.white)
                                 .cornerRadius(8)
-                                .onChange(of: viewModel.email) { email in
-                                    viewModel.validateEmail()
-                                }
 
                             SecureField("Password", text: $viewModel.password)
                                 .padding()
                                 .background(Color.white)
                                 .cornerRadius(8)
-                                .onChange(of: viewModel.password) { password in
-                                    viewModel.validatePassword()
-                                }
                         }
                         .padding(.horizontal)
-
-                        if !viewModel.validationErrorMessages.isEmpty {
-                            withAnimation(.easeInOut(duration: 0.3)) {
-                                errorMessagesView
-                                    .frame(maxWidth: .infinity ,maxHeight: calculateErrorViewHeight())
-                                    .padding(.horizontal)
-                                    .transition(.opacity)
-                            }
-                        }
 
                         AsyncActionButton("Login") {
                             await viewModel.loginButtonTapped()
@@ -81,29 +66,8 @@ struct AuthenticationView: View {
         }
     }
 
-    private var errorMessagesView: some View {
-        VStack(alignment: .leading) {
-            ForEach(viewModel.validationErrorMessages, id: \.self) { error in
-                Text("• \(error.rawValue)")
-                    .foregroundColor(.red)
-                    .font(.body )
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .padding(.horizontal)
-    }
-
-    private func calculateErrorViewHeight() -> CGFloat {
-        let singleLineHeight: CGFloat = 20
-        let totalHeight = CGFloat(viewModel.validationErrorMessages.count) * singleLineHeight
-        let minHeight: CGFloat = 40
-        return max(totalHeight, minHeight)
-    }
-
     private func loginButtonTapped() async {
-        do {
-            try await viewModel.loginButtonTapped()
-        }
+        await viewModel.loginButtonTapped()
     }
 }
 
