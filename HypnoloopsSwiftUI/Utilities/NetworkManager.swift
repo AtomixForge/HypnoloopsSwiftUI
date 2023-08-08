@@ -11,6 +11,15 @@ import FirebaseStorage
 import Foundation
 
 class NetworkManager: NetworkManageable {
+
+    func signInWithEmailPassword(email: String, password: String) async throws {
+        do {
+            try await Auth.auth().signIn(withEmail: email, password: password)
+        } catch {
+            throw HypnoError.signInError
+        }
+    }
+
     func fetchUserProfilImageURL() async throws -> URL {
         guard let uid = Auth.auth().currentUser?.uid else {
             throw HypnoError.authenticatedUserError
