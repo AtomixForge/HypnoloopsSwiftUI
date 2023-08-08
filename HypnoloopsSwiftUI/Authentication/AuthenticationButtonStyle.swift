@@ -10,14 +10,12 @@ import SwiftUI
 struct AuthenticationButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.title)
-            .foregroundStyle(Color.white)
-            .frame(maxWidth: 250)
-            .padding(.horizontal, 12)
-            .padding(.vertical)
+            .foregroundStyle(.white)
+            .font(.headline)
+            .frame(maxWidth: .infinity)
+            .padding()
             .background(Color("hlPurple"))
-            .clipShape(RoundedRectangle(cornerRadius: 5))
-            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .cornerRadius(8)
 
     }
 }

@@ -11,59 +11,111 @@ struct AuthenticationView: View {
     @StateObject private var viewModel = AuthenticationViewModel()
 
     var body: some View {
-        VStack {
-            VStack {
-                logoImage
-                authForm
-                loginButton
-                createAccountLink
+        NavigationView {
+            if viewModel.isLoggedIn {
+                RecordView()
+            } else {
 
+                ZStack {
+                    Color(.systemGray6)
+                        .ignoresSafeArea()
 
+                    VStack(spacing: 12) {
+                        Image("loopLogo3")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 300)
+
+                        VStack(alignment: .leading, spacing: 16) {
+                            TextField("Email", text: $viewModel.email)
+                                .keyboardType(.emailAddress)
+                                .autocapitalization(.none)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(8)
+                                .onChange(of: viewModel.email) { email in
+                                    viewModel.validateEmail()
+                                }
+
+                            SecureField("Password", text: $viewModel.password)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(8)
+                                .onChange(of: viewModel.password) { password in
+                                    viewModel.validatePassword()
+                                }
+                        }
+                        .padding(.horizontal)
+
+                        if !viewModel.validationErrorMessages.isEmpty {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                errorMessagesView
+                                    .frame(maxWidth: .infinity ,maxHeight: calculateErrorViewHeight())
+                                    .padding(.horizontal)
+                                    .transition(.opacity)
+                            }
+                        }
+
+                        AsyncActionButton("Login") {
+                            await viewModel.loginButtonTapped()
+                        }
+                        .buttonStyle(.authentication)
+                        .padding(.horizontal)
+
+                        NavigationLink(destination: ForgotPasswordView()) {
+                            Text("Forgot Password?")
+                                .foregroundColor(.blue)
+                                .underline()
+                        }
+
+                        NavigationLink(destination: CreateAccountView()) {
+                            Text("Create Account")
+                                .foregroundColor(.blue)
+                                .underline()
+                        }
+                    }
+                    .padding()
+                }
+                .navigationBarHidden(true)
             }
-            .scaledToFit()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("hlIndigo"))
     }
 
-    private var logoImage: some View {
-        Image("loopLogo3")
-            .resizable()
-            .frame(maxWidth: 300)
-            .aspectRatio(contentMode: .fit)
-    }
-
-    private var authForm: some View {
-        Form {
-            Section {
-                TextField("Username", text: $viewModel.email)
-                TextField("Password", text: $viewModel.password)
+    private var errorMessagesView: some View {
+        VStack(alignment: .leading) {
+            ForEach(viewModel.validationErrorMessages, id: \.self) { error in
+                Text("• \(error.rawValue)")
+                    .foregroundColor(.red)
+                    .font(.body )
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
-        .background(Color("hlIndigo"))
-        .scrollContentBackground(.hidden)
+        .padding(.horizontal)
     }
 
-    private var loginButton: some View {
-        AsyncActionButton("Login") {
-            await viewModel.loginButtonTapped()
-        }
-        .buttonStyle(.authentication)
+    private func calculateErrorViewHeight() -> CGFloat {
+        let singleLineHeight: CGFloat = 20
+        let totalHeight = CGFloat(viewModel.validationErrorMessages.count) * singleLineHeight
+        let minHeight: CGFloat = 40
+        return max(totalHeight, minHeight)
     }
 
-    private var createAccountLink: some View {
-        NavigationLink(destination: CreateAccountView()) {
-            Text("Create Account")
-                .foregroundStyle(Color.white)
-                .underline()
+    private func loginButtonTapped() async {
+        do {
+            try await viewModel.loginButtonTapped()
         }
     }
 }
 
+struct ForgotPasswordView: View {
+    var body: some View {
+        Text("Forgot Password View")
+            .navigationBarTitle("Forgot Password", displayMode: .inline)
+    }
+}
 
-struct Authentication_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         AuthenticationView()
     }
 }
-    

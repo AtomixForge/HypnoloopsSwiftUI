@@ -11,49 +11,60 @@ struct CreateAccountView: View {
     @StateObject private var viewModel = CreateAccountViewModel()
 
     var body: some View {
-        VStack {
-            VStack {
-                Image(systemName: "camera")
-                    .resizable()
-                    .foregroundStyle(Color.white)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100)
-                    .padding()
+        NavigationView {
+            ZStack {
+                Color("hlIndigo")
+                    .ignoresSafeArea()
 
-                createAccountForm
-                createAccountButton
-            }
-            .scaledToFit()
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("hlIndigo"))
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("Create Account")
-                    .foregroundStyle(Color.white)
-                    .font(.title.weight(.semibold))
-            }
-        }
-    }
+                VStack {
+                    Image(systemName: "camera")
+                        .resizable()
+                        .foregroundStyle(Color.white)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100)
+                        .padding(.top, 32)
 
-    private var createAccountForm: some View {
-        Form {
-            Section {
-                TextField("Email", text: $viewModel.email)
-                TextField("Username", text: $viewModel.username)
-                TextField("Password", text: $viewModel.password)
+                    Spacer()
+
+                    VStack(spacing: 16) {
+                        TextField("Username", text: $viewModel.username)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(8)
+                            .foregroundColor(.black)
+
+                        TextField("Email", text: $viewModel.email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(8)
+                            .foregroundColor(.black)
+
+                        SecureField("Password", text: $viewModel.password)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(8)
+                            .foregroundColor(.black)
+                    }
+                    .padding(.horizontal)
+
+                    AsyncActionButton("Create Account") {}
+                        .buttonStyle(.authentication)
+                        .padding()
+
+                    Spacer()
+                }
+            }
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Create Account")
+                        .font(.title.weight(.semibold))
+                        .foregroundColor(.white)
+                }
             }
         }
-        .background(Color("hlIndigo"))
-        .scrollContentBackground(.hidden)
-        .padding()
-    }
-
-    private var createAccountButton: some View {
-        AsyncActionButton("Create Account") {}
-            .buttonStyle(.authentication)
     }
 }
 

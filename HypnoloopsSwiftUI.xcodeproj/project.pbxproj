@@ -57,9 +57,11 @@
 		E86866132A7FD7AE0092605B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86866122A7FD7AE0092605B /* UserData.swift */; };
 		E86866152A7FD88D0092605B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86866142A7FD88D0092605B /* NetworkManager.swift */; };
 		E86866172A7FD9470092605B /* HypnoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86866162A7FD9470092605B /* HypnoError.swift */; };
+		E868661D2A804EA20092605B /* HypnoValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868661C2A804EA20092605B /* HypnoValidationError.swift */; };
 		E8714E642A7CAD7700D6BF64 /* DataImportManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */; };
 		E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */; };
 		E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D097812A77556700850A1E /* AuthenticationViewModel.swift */; };
+		E8F104202A82CAB300B454E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8F1041F2A82CAB300B454E8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,9 +89,11 @@
 		E86866122A7FD7AE0092605B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E86866142A7FD88D0092605B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E86866162A7FD9470092605B /* HypnoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoError.swift; sourceTree = "<group>"; };
+		E868661C2A804EA20092605B /* HypnoValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoValidationError.swift; sourceTree = "<group>"; };
 		E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImportManageable.swift; sourceTree = "<group>"; };
 		E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		E8D097812A77556700850A1E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		E8F1041F2A82CAB300B454E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 				E86866102A7FD75B0092605B /* NetworkManageable.swift */,
 				E86866142A7FD88D0092605B /* NetworkManager.swift */,
 				E86866162A7FD9470092605B /* HypnoError.swift */,
+				E868661C2A804EA20092605B /* HypnoValidationError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 		E855B3002A773554009221E8 /* HypnoloopsSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E8F1041F2A82CAB300B454E8 /* GoogleService-Info.plist */,
 				4D46631C2A7D5AD700C00520 /* Utilities */,
 				4D4663192A7D4A1700C00520 /* Components */,
 				4D2C83D82A7C28F00033834B /* Models */,
@@ -318,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E855B3092A773557009221E8 /* Preview Assets.xcassets in Resources */,
+				E8F104202A82CAB300B454E8 /* GoogleService-Info.plist in Resources */,
 				4D2C83DA2A7C296F0033834B /* Affirmations.json in Resources */,
 				E855B3062A773557009221E8 /* Assets.xcassets in Resources */,
 			);
@@ -338,6 +345,7 @@
 				E86866172A7FD9470092605B /* HypnoError.swift in Sources */,
 				E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */,
 				E86866112A7FD75B0092605B /* NetworkManageable.swift in Sources */,
+				E868661D2A804EA20092605B /* HypnoValidationError.swift in Sources */,
 				E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */,
 				E8714E642A7CAD7700D6BF64 /* DataImportManageable.swift in Sources */,
 				E02E77042A7A1958007384CE /* SoundScapeView.swift in Sources */,
