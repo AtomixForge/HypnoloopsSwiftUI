@@ -14,5 +14,6 @@ enum HypnoError: String, Error {
     case sectionHeadersError = "Section headers error occurred."
     case updateLikedAffirmationsError = "Update liked affirmations error occurred."
     case signInError = "Email or password incorrect. Try again"
+    case createUserError = "Failed to create user. Try Again."
 }
 
