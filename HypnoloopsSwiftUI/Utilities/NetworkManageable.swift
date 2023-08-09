@@ -12,4 +12,5 @@ protocol NetworkManageable {
     func fetchCurrentUserData() async throws -> UserData
     func updateLikedAffirmations(likedAffirmationIds: [String]) async throws
     func signInWithEmailPassword(email: String, password: String) async throws
+    func createUserWithEmailPassword(email: String, password: String) async throws
 }
