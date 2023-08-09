@@ -19,7 +19,6 @@ struct AuthenticationView: View {
                 ZStack {
                     Color(.systemGray6)
                         .ignoresSafeArea()
-
                     VStack(spacing: 12) {
                         Image("loopLogo3")
                             .resizable()
@@ -33,33 +32,20 @@ struct AuthenticationView: View {
                                 .padding()
                                 .background(Color.white)
                                 .cornerRadius(8)
-                                .onChange(of: viewModel.email) { email in
-                                    viewModel.validateEmail()
-                                }
 
                             SecureField("Password", text: $viewModel.password)
                                 .padding()
                                 .background(Color.white)
                                 .cornerRadius(8)
-                                .onChange(of: viewModel.password) { password in
-                                    viewModel.validatePassword()
-                                }
                         }
                         .padding(.horizontal)
 
-                        if !viewModel.validationErrorMessages.isEmpty {
-                            withAnimation(.easeInOut(duration: 0.3)) {
-                                errorMessagesView
-                                    .frame(maxWidth: .infinity ,maxHeight: calculateErrorViewHeight())
-                                    .padding(.horizontal)
-                                    .transition(.opacity)
+                        AsyncActionButton("Login") {
+                            if viewModel.isValidForm {
+                                await viewModel.attemptLogin()
                             }
                         }
-
-                        AsyncActionButton("Login") {
-                            await viewModel.loginButtonTapped()
-                        }
-                        .buttonStyle(.authentication)
+                        .buttonStyle(AuthenticationButtonStyle(enabled: viewModel.isValidForm))
                         .padding(.horizontal)
 
                         NavigationLink(destination: ForgotPasswordView()) {
@@ -79,30 +65,24 @@ struct AuthenticationView: View {
                 .navigationBarHidden(true)
             }
         }
+        .hypnoAlert(presentAlert: $viewModel.isPresentingError,
+                    alertType: .error(title: "Login Error",
+                                      messages: [errorMessage]),
+                    leftButtonAction: dismissAlert,
+                    rightButtonAction: nil)
     }
 
-    private var errorMessagesView: some View {
-        VStack(alignment: .leading) {
-            ForEach(viewModel.validationErrorMessages, id: \.self) { error in
-                Text("• \(error.rawValue)")
-                    .foregroundColor(.red)
-                    .font(.body )
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+    private var errorMessage: String {
+        guard let message = viewModel.authenticationErrorMessage else {
+            return "Invalid login credintials"
         }
-        .padding(.horizontal)
+        return message
     }
 
-    private func calculateErrorViewHeight() -> CGFloat {
-        let singleLineHeight: CGFloat = 20
-        let totalHeight = CGFloat(viewModel.validationErrorMessages.count) * singleLineHeight
-        let minHeight: CGFloat = 40
-        return max(totalHeight, minHeight)
-    }
-
-    private func loginButtonTapped() async {
-        do {
-            try await viewModel.loginButtonTapped()
+    private func dismissAlert() {
+        withAnimation {
+            viewModel.authenticationErrorMessage = nil
+            viewModel.isPresentingError = false
         }
     }
 }

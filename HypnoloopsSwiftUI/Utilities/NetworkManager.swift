@@ -11,6 +11,14 @@ import FirebaseStorage
 import Foundation
 
 class NetworkManager: NetworkManageable {
+    func createUserWithEmailPassword(email: String, password: String) async throws {
+        do {
+            try await Auth.auth().createUser(withEmail: email, password: password)
+        } catch {
+            throw HypnoError.createUserError
+        }
+    }
+
 
     func signInWithEmailPassword(email: String, password: String) async throws {
         do {
