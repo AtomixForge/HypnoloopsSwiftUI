@@ -19,7 +19,6 @@ struct AuthenticationView: View {
                 ZStack {
                     Color(.systemGray6)
                         .ignoresSafeArea()
-
                     VStack(spacing: 12) {
                         Image("loopLogo3")
                             .resizable()
@@ -42,9 +41,11 @@ struct AuthenticationView: View {
                         .padding(.horizontal)
 
                         AsyncActionButton("Login") {
-                            await viewModel.loginButtonTapped()
+                            if viewModel.isValidForm {
+                                await viewModel.attemptLogin()
+                            }
                         }
-                        .buttonStyle(.authentication)
+                        .buttonStyle(AuthenticationButtonStyle(enabled: viewModel.isValidForm))
                         .padding(.horizontal)
 
                         NavigationLink(destination: ForgotPasswordView()) {
@@ -64,10 +65,25 @@ struct AuthenticationView: View {
                 .navigationBarHidden(true)
             }
         }
+        .hypnoAlert(presentAlert: $viewModel.isPresentingError,
+                    alertType: .error(title: "Login Error",
+                                      message: errorMessage),
+                    leftButtonAction: dismissAlert,
+                    rightButtonAction: nil)
     }
 
-    private func loginButtonTapped() async {
-        await viewModel.loginButtonTapped()
+    private var errorMessage: String {
+        guard let message = viewModel.authenticationErrorMessage else {
+            return "Invalid login credintials"
+        }
+        return message
+    }
+
+    private func dismissAlert() {
+        withAnimation {
+            viewModel.authenticationErrorMessage = nil
+            viewModel.isPresentingError = false
+        }
     }
 }
 
