@@ -138,6 +138,19 @@ struct ContentView: View {
                 leftButtonAction: {},
                 rightButtonAction: nil
             )
+
+        AuthenticationView()
+            .hypnoAlert(presentAlert: $presentAlert,
+                        alertType: .error(title: "Error Title",
+                                          message: "Error Message"),
+                        leftButtonAction: {},
+                        rightButtonAction: {})
+
+        AuthenticationView()
+            .hypnoAlert(presentAlert: $presentAlert,
+                        alertType: .success,
+                        leftButtonAction: {},
+                        rightButtonAction: {})
     }
 }
 
