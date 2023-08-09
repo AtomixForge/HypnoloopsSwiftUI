@@ -11,20 +11,28 @@ struct CreateAccountView: View {
     @StateObject private var viewModel = CreateAccountViewModel()
 
     var body: some View {
-        NavigationView {
+        if viewModel.isLoggedIn {
+            RecordView()
+        } else {
             ZStack {
                 Color("hlIndigo")
                     .ignoresSafeArea()
 
                 VStack {
-                    Image(systemName: "camera")
-                        .resizable()
-                        .foregroundStyle(Color.white)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100)
-                        .padding(.top, 32)
-
                     Spacer()
+
+                    Circle()
+                        .stroke(lineWidth: 3)
+                        .foregroundColor(.white)
+                        .overlay(
+                            Image(systemName: "camera")
+                                .resizable()
+                                .foregroundStyle(Color.white)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100)
+                        )
+                        .frame(width: 150)
+                        .padding(.vertical, 24)
 
                     VStack(spacing: 16) {
                         TextField("Username", text: $viewModel.username)
@@ -49,9 +57,11 @@ struct CreateAccountView: View {
                     }
                     .padding(.horizontal)
 
-                    AsyncActionButton("Create Account") {}
-                        .buttonStyle(.authentication)
-                        .padding()
+                    AsyncActionButton("Create Account") {
+                        await viewModel.attemptCreateAccount(email: viewModel.email, password: viewModel.password)
+                    }
+                    .buttonStyle(.authentication)
+                    .padding()
 
                     Spacer()
                 }
@@ -64,7 +74,20 @@ struct CreateAccountView: View {
                         .foregroundColor(.white)
                 }
             }
+            .hypnoAlert(presentAlert: $viewModel.isErrorPresented, alertType: .error(title: "Error", messages: [errorMessage]), leftButtonAction: nil, rightButtonAction: nil)
+            .hypnoAlert(presentAlert: $viewModel.isValidationErrorsPresented, alertType: .error(title: "Invalid Form", messages: validationMessages), leftButtonAction: nil, rightButtonAction: nil)
         }
+    }
+
+    private var errorMessage: String {
+        guard let message = viewModel.createAccountErrorMessage else {
+            return "Invalid credentials"
+        }
+        return message
+    }
+
+    private var validationMessages: [String] {
+        viewModel.validationErrorMessages.map { $0.rawValue }
     }
 }
 
