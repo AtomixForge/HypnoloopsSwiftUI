@@ -9,7 +9,7 @@ import SwiftUI
 
 enum HypnoAlert {
     case success
-    case error(title: String, message: String)
+    case error(title: String, messages: [String])  // Change message to messages
 
     func title() -> String {
         switch self {
@@ -22,7 +22,7 @@ enum HypnoAlert {
 
     var leftActionText: String {
         switch self {
-        case .error(_ , _):
+        case .error(_, _):
             return "OK"
         case .success:
             return "Confirm"
@@ -31,7 +31,7 @@ enum HypnoAlert {
 
     var rightActionText: String {
         switch self {
-        case .error(_ , _):
+        case .error(_, _):
             return "Cancel"
         case .success:
             return "Cancel"
@@ -40,7 +40,7 @@ enum HypnoAlert {
 
     func height(isShowingVerticalButtons: Bool = false) -> CGFloat {
         switch self {
-        case .error(_ , _):
+        case .error(_, _):
             return isShowingVerticalButtons ? 220 : 150
         case .success:
             return isShowingVerticalButtons ? 220 : 150
@@ -67,11 +67,17 @@ struct HypnoAlertModifier: ViewModifier {
                             .foregroundColor(.primary)
                             .padding(.vertical, 12)
 
-                        if case .error(_ , let message) = alertType {
-                            Text(message)
-                                .font(.body)
-                                .foregroundColor(.secondary)
-                                .padding(.horizontal)
+                        if case .error(_, let messages) = alertType {
+                            VStack(spacing: 0){
+                                ForEach(messages, id: \.self) { message in
+                                    Text(message)
+                                        .font(.body)
+                                        .foregroundColor(.red)
+                                        .padding(.horizontal)
+                                        .multilineTextAlignment(.center)
+                                }
+                                .frame(maxHeight: CGFloat(messages.count * 12))
+                            }
                         }
 
                         HStack {
@@ -103,8 +109,8 @@ struct HypnoAlertModifier: ViewModifier {
                     .cornerRadius(10)
                     .padding()
                 }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .opacity(presentAlert ? 1 : 0)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .opacity(presentAlert ? 1 : 0)
             )
     }
 }
@@ -120,7 +126,6 @@ extension View {
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -134,23 +139,17 @@ struct ContentView: View {
         AuthenticationView()
             .hypnoAlert(
                 presentAlert: $presentAlert,
-                alertType: .error(title: "Error Title", message: "Error Message"),
+                alertType: .error(title: "Error Title", messages: ["Error Message 1", "Error Message 2"]),
                 leftButtonAction: {},
                 rightButtonAction: nil
             )
 
         AuthenticationView()
-            .hypnoAlert(presentAlert: $presentAlert,
-                        alertType: .error(title: "Error Title",
-                                          message: "Error Message"),
-                        leftButtonAction: {},
-                        rightButtonAction: {})
-
-        AuthenticationView()
-            .hypnoAlert(presentAlert: $presentAlert,
-                        alertType: .success,
-                        leftButtonAction: {},
-                        rightButtonAction: {})
+            .hypnoAlert(
+                presentAlert: $presentAlert,
+                alertType: .success,
+                leftButtonAction: {},
+                rightButtonAction: {}
+            )
     }
 }
-

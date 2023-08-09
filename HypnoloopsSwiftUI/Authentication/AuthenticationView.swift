@@ -67,7 +67,7 @@ struct AuthenticationView: View {
         }
         .hypnoAlert(presentAlert: $viewModel.isPresentingError,
                     alertType: .error(title: "Login Error",
-                                      message: errorMessage),
+                                      messages: [errorMessage]),
                     leftButtonAction: dismissAlert,
                     rightButtonAction: nil)
     }
