@@ -16,7 +16,6 @@
 		E02E77022A7A1950007384CE /* SavedRecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77012A7A1950007384CE /* SavedRecordingsView.swift */; };
 		E02E77042A7A1958007384CE /* SoundScapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77032A7A1958007384CE /* SoundScapeView.swift */; };
 		E02E77062A7A195F007384CE /* PlaySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77052A7A195F007384CE /* PlaySettingsView.swift */; };
-		E02E770A2A7AC222007384CE /* RecordView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77092A7AC221007384CE /* RecordView2.swift */; };
 		E0E7BBCF2A78CDC200DFA24A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E7BBCE2A78CDC200DFA24A /* RecordView.swift */; };
 		E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80606872A78866700090DF2 /* CreateAccountView.swift */; };
 		E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80606892A78889D00090DF2 /* CreateAccountViewModel.swift */; };
@@ -79,7 +78,6 @@
 		E02E77012A7A1950007384CE /* SavedRecordingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRecordingsView.swift; sourceTree = "<group>"; };
 		E02E77032A7A1958007384CE /* SoundScapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundScapeView.swift; sourceTree = "<group>"; };
 		E02E77052A7A195F007384CE /* PlaySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySettingsView.swift; sourceTree = "<group>"; };
-		E02E77092A7AC221007384CE /* RecordView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView2.swift; sourceTree = "<group>"; };
 		E0E7BBCE2A78CDC200DFA24A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		E80606872A78866700090DF2 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		E80606892A78889D00090DF2 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				E0E7BBCE2A78CDC200DFA24A /* RecordView.swift */,
-				E02E77092A7AC221007384CE /* RecordView2.swift */,
 				E02E76FF2A7A1944007384CE /* PlayView.swift */,
 				4D2C83D52A7C23320033834B /* CategoryView.swift */,
 				E02E77012A7A1950007384CE /* SavedRecordingsView.swift */,
