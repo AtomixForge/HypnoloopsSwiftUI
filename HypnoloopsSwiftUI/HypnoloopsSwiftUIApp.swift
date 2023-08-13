@@ -18,7 +18,7 @@ struct HypnoloopsSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView(content: {
-                AuthenticationView()
+                CategoryView(viewModel: .init())
             })
         }
     }

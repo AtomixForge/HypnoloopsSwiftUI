@@ -20,7 +20,9 @@ struct CategorySectionRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(section.categories, id: \.self) { category in
-                        CategoryItem(category: category)
+                        NavigationLink(destination: AffirmationsView()){
+                            CategoryItem(category: category)
+                        }
                     }
                 }
             }

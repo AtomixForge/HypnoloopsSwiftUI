@@ -12,6 +12,9 @@ struct CategoryView: View {
 
     init(viewModel: CategoryViewModel) {
         self.viewModel = viewModel
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
     var body: some View {
@@ -27,7 +30,7 @@ struct CategoryView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.hLoopIndigo)
-        .navigationTitle("Category View")
+        .navigationTitle("Categories")
     }
 }
 
