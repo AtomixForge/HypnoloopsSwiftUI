@@ -16,10 +16,18 @@ struct HypnoloopsSwiftUIApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
-            NavigationView(content: {
-                AuthenticationView()
-            })
+        WindowGroup { homeView }
+    }
+
+    private var homeView: some View {
+        Group {
+            NavigationView {
+                if Auth.auth().currentUser == nil {
+                    AuthenticationView()
+                } else {
+                    WelcomeView()
+                }
+            }
         }
     }
 }
