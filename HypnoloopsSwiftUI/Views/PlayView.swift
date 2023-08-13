@@ -28,6 +28,7 @@ struct PlayView: View {
                 Image(systemName: "waveform.path")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.hlBlue)
                     .frame(width: 200, height:150, alignment: .center)
                     .padding(.horizontal, 10)
             }
@@ -46,7 +47,7 @@ struct PlayView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding(10)
-                            .background(Color.blue)
+                            .background(Color.hlBlue)
                             .cornerRadius(8)
                         }
                         .buttonStyle(.plain)
@@ -68,7 +69,7 @@ struct PlayView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding(10)
-                            .background(Color.blue)
+                            .background(Color.hlBlue)
                             .cornerRadius(8)
                         }
                         .buttonStyle(.plain)
@@ -132,7 +133,7 @@ struct PlayView: View {
                 }
                 .frame(width: 100, height: 100, alignment: .center)
                 .padding(.all, 5)
-                .background(Circle().fill(Color.blue))
+                .background(Circle().fill(Color.hlBlue))
             }
             .padding(20)
             
