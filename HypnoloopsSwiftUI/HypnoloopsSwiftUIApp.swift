@@ -25,7 +25,7 @@ struct HypnoloopsSwiftUIApp: App {
                 if Auth.auth().currentUser == nil {
                     AuthenticationView()
                 } else {
-                    WelcomeView()
+                    RecordView()
                 }
             }
         }
