@@ -11,14 +11,11 @@ struct AuthenticationView: View {
     @StateObject private var viewModel = AuthenticationViewModel()
 
     var body: some View {
-        NavigationView {
-            if viewModel.isLoggedIn {
-                RecordView()
-            } else {
-
+            NavigationView {
                 ZStack {
                     Color(.systemGray6)
                         .ignoresSafeArea()
+
                     VStack(spacing: 12) {
                         Image("loopLogo3")
                             .resizable()
@@ -42,7 +39,9 @@ struct AuthenticationView: View {
 
                         AsyncActionButton("Login") {
                             if viewModel.isValidForm {
-                                await viewModel.attemptLogin()
+                                Task {
+                                    await viewModel.attemptLogin()
+                                }
                             }
                         }
                         .buttonStyle(AuthenticationButtonStyle(enabled: viewModel.isValidForm))
@@ -64,13 +63,15 @@ struct AuthenticationView: View {
                 }
                 .navigationBarHidden(true)
             }
+            .hypnoAlert(presentAlert: $viewModel.isPresentingError,
+                        alertType: .error(title: "Login Error",
+                                          messages: [errorMessage]),
+                        leftButtonAction: dismissAlert,
+                        rightButtonAction: nil)
+            .fullScreenCover(isPresented: $viewModel.isLoggedIn) {
+                RecordView()
+            }
         }
-        .hypnoAlert(presentAlert: $viewModel.isPresentingError,
-                    alertType: .error(title: "Login Error",
-                                      messages: [errorMessage]),
-                    leftButtonAction: dismissAlert,
-                    rightButtonAction: nil)
-    }
 
     private var errorMessage: String {
         guard let message = viewModel.authenticationErrorMessage else {
