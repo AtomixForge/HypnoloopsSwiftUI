@@ -20,9 +20,7 @@ struct CategorySectionRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(section.categories, id: \.self) { category in
-                        NavigationLink(destination: AffirmationsView()){
-                            CategoryItem(category: category)
-                        }
+                        CategoryItem(category: category)
                     }
                 }
             }
@@ -34,19 +32,21 @@ struct CategoryItem: View {
     var category: Category
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(category.title)
-                .foregroundStyle(Color.white)
+        NavigationLink(destination: AffirmationsView(affirmations: category.affirmations)) {
+            VStack(alignment: .leading) {
+                Text(category.title)
+                    .foregroundStyle(Color.white)
+            }
+            .frame(width: 150, height: 150)
+            .background(Color.black)
+            .cornerRadius(8)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(Color.hlBlue, lineWidth: 5)
+            )
+            .padding(.leading, 8)
+            .padding(.bottom, 8)
         }
-        .frame(width: 150, height: 150)
-        .background(Color.black)
-        .cornerRadius(8)
-        .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .strokeBorder(Color.hlBlue, lineWidth: 5)
-        )
-        .padding(.leading, 8)
-        .padding(.bottom, 8)
     }
 }
 
