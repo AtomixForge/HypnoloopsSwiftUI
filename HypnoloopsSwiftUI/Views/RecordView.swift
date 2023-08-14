@@ -107,7 +107,7 @@ struct RecordView: View {
                 }
                 .padding(.horizontal, 10)
             }
-            .padding(.top, 20)
+            .padding(20)
         }
     }
 }

@@ -69,7 +69,7 @@ struct AuthenticationView: View {
                         leftButtonAction: dismissAlert,
                         rightButtonAction: nil)
             .fullScreenCover(isPresented: $viewModel.isLoggedIn) {
-                RecordView()
+                HypnoTabView()
             }
         }
 
