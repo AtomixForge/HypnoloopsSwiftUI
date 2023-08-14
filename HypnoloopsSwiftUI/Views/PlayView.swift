@@ -11,6 +11,8 @@ struct PlayView: View {
   
     @State private var activeSheet: ActiveSheet?
     @State private var settingsDetent = PresentationDetent.medium
+
+    @ObservedObject private var audioCoordinator = AudioCoordinator()
     
     enum ActiveSheet: Identifiable {
         case settings, soundScape, recordings
@@ -116,25 +118,8 @@ struct PlayView: View {
             .listRowInsets(EdgeInsets())
             //.background(.darkGray)
             //.scrollContentBackground(.hidden)
-            
-            Button(action: {
-                // insert your action here
-                print("Button pressed!")
-            }) {
-                VStack {
-                    Text("Play")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(5)
-                    
-                    Image(systemName: "play.fill")
-                        .font(.title)
-                        .foregroundColor(.white)
-                }
-                .frame(width: 100, height: 100, alignment: .center)
-                .padding(.all, 5)
-                .background(Circle().fill(Color.hlBlue))
-            }
+
+            AudioButton(type: .play, coordinator: audioCoordinator)
             .padding(20)
             
         }

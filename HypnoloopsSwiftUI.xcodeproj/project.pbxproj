@@ -64,6 +64,7 @@
 		E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D097812A77556700850A1E /* AuthenticationViewModel.swift */; };
 		E8D115612A89B307005FC139 /* HypnoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D115602A89B307005FC139 /* HypnoTabView.swift */; };
 		E8D115632A89B462005FC139 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D115622A89B462005FC139 /* ProfileView.swift */; };
+		E8D115652A89C5E6005FC139 /* AudioCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D115642A89C5E6005FC139 /* AudioCoordinator.swift */; };
 		E8DAC1292A8305E500765CA7 /* HypnoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAC1282A8305E500765CA7 /* HypnoAlertView.swift */; };
 		E8F104202A82CAB300B454E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8F1041F2A82CAB300B454E8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		E8D097812A77556700850A1E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		E8D115602A89B307005FC139 /* HypnoTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoTabView.swift; sourceTree = "<group>"; };
 		E8D115622A89B462005FC139 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E8D115642A89C5E6005FC139 /* AudioCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCoordinator.swift; sourceTree = "<group>"; };
 		E8DAC1282A8305E500765CA7 /* HypnoAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoAlertView.swift; sourceTree = "<group>"; };
 		E8F1041F2A82CAB300B454E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				4D46631A2A7D4A4300C00520 /* CategorySectionRow.swift */,
 				E8DAC1282A8305E500765CA7 /* HypnoAlertView.swift */,
 				E890EAE92A870363003DA56D /* AudioButton.swift */,
+				E8D115642A89C5E6005FC139 /* AudioCoordinator.swift */,
 				E890EAEB2A8712E0003DA56D /* NavigationButton.swift */,
 			);
 			path = Components;
@@ -376,6 +379,7 @@
 				E02E77022A7A1950007384CE /* SavedRecordingsView.swift in Sources */,
 				E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */,
 				E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */,
+				E8D115652A89C5E6005FC139 /* AudioCoordinator.swift in Sources */,
 				E02E77062A7A195F007384CE /* PlaySettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
