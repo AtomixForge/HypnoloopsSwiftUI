@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 enum AudioButtonType {
     case record
@@ -14,51 +15,61 @@ enum AudioButtonType {
 
 struct AudioButton: View {
     let type: AudioButtonType
-    @Binding var isRecording: Bool
-    @Binding var isPlaying: Bool
+    @ObservedObject var coordinator: AudioCoordinator
 
     var body: some View {
         Button(action: {
-            type == .record ? isRecording.toggle() : isPlaying.toggle()
+            if type == .record {
+                coordinator.isRecording.toggle()
+                coordinator.toggleRecording()
+            } else {
+                coordinator.isPlaying.toggle()
+                coordinator.togglePlayback()
+            }
         }) {
-            Image(systemName: imageName)
-                .font(.system(size: 30))
-                .foregroundColor(imageColor)
+            Circle()
+                .opacity(0.3)
+                .overlay {
+                    Image(systemName: imageName)
+                        .font(.system(size: 30))
+                        .foregroundColor(imageColor)
+                }
         }
-        .disabled(type == .play ? isRecording : isPlaying)
+        .frame(width: 80)
+        .disabled(type == .play ? coordinator.isRecording : coordinator.isPlaying)
     }
 
     private var imageName: String {
         switch type {
         case .record:
-            return isRecording ? "mic.fill" : "mic"
+            return coordinator.isRecording ? "mic.fill" : "mic"
         case .play:
-            return isPlaying ? "pause.fill" : "play.fill"
+            return coordinator.isPlaying ? "stop.fill" : "play.fill"
         }
     }
 
     private var imageColor: Color {
-            switch type {
-            case .record:
-                return isRecording ? .red : .primary
-            case .play:
-                return isPlaying ? .orange : .primary
-            }
+        switch type {
+        case .record:
+            return coordinator.isRecording ? .red : .primary
+        case .play:
+            return coordinator.isPlaying ? .red : .primary
         }
+    }
+
+    
+
+    
 }
 
 struct AudioButton_Previews: PreviewProvider {
     static var previews: some View {
+        let coordinator = AudioCoordinator()
         VStack(spacing: 20) {
             HStack(spacing: 20) {
-                AudioButton(type: .record, isRecording: .constant(false), isPlaying: .constant(false))
-                AudioButton(type: .play, isRecording: .constant(false), isPlaying: .constant(false))
-            }
-            HStack(spacing: 20) {
-                AudioButton(type: .record, isRecording: .constant(true), isPlaying: .constant(true))
-                AudioButton(type: .play, isRecording: .constant(true), isPlaying: .constant(true))
+                AudioButton(type: .record, coordinator: coordinator)
+                AudioButton(type: .play, coordinator: coordinator)
             }
         }
     }
 }
-
