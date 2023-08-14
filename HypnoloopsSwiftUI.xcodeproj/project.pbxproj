@@ -12,6 +12,7 @@
 		4D2C83DC2A7C46970033834B /* Affirmations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C83DB2A7C46970033834B /* Affirmations.swift */; };
 		4D2C83DE2A7C4A580033834B /* DataImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C83DD2A7C4A580033834B /* DataImportManager.swift */; };
 		4D46631B2A7D4A4300C00520 /* CategorySectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46631A2A7D4A4300C00520 /* CategorySectionRow.swift */; };
+		4D96D8892A870432003AF5C7 /* AffirmationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96D8882A870432003AF5C7 /* AffirmationsView.swift */; };
 		E02E77002A7A1944007384CE /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E76FF2A7A1944007384CE /* PlayView.swift */; };
 		E02E77022A7A1950007384CE /* SavedRecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77012A7A1950007384CE /* SavedRecordingsView.swift */; };
 		E02E77042A7A1958007384CE /* SoundScapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E77032A7A1958007384CE /* SoundScapeView.swift */; };
@@ -75,6 +76,7 @@
 		4D2C83DB2A7C46970033834B /* Affirmations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affirmations.swift; sourceTree = "<group>"; };
 		4D2C83DD2A7C4A580033834B /* DataImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImportManager.swift; sourceTree = "<group>"; };
 		4D46631A2A7D4A4300C00520 /* CategorySectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionRow.swift; sourceTree = "<group>"; };
+		4D96D8882A870432003AF5C7 /* AffirmationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsView.swift; sourceTree = "<group>"; };
 		E02E76FF2A7A1944007384CE /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		E02E77012A7A1950007384CE /* SavedRecordingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRecordingsView.swift; sourceTree = "<group>"; };
 		E02E77032A7A1958007384CE /* SoundScapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundScapeView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				E02E77012A7A1950007384CE /* SavedRecordingsView.swift */,
 				E02E77032A7A1958007384CE /* SoundScapeView.swift */,
 				E02E77052A7A195F007384CE /* PlaySettingsView.swift */,
+				4D96D8882A870432003AF5C7 /* AffirmationsView.swift */,
 				E8D115622A89B462005FC139 /* ProfileView.swift */,
 			);
 			path = Views;
@@ -378,6 +381,7 @@
 				4D46631B2A7D4A4300C00520 /* CategorySectionRow.swift in Sources */,
 				E02E77022A7A1950007384CE /* SavedRecordingsView.swift in Sources */,
 				E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */,
+				4D96D8892A870432003AF5C7 /* AffirmationsView.swift in Sources */,
 				E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */,
 				E8D115652A89C5E6005FC139 /* AudioCoordinator.swift in Sources */,
 				E02E77062A7A195F007384CE /* PlaySettingsView.swift in Sources */,
