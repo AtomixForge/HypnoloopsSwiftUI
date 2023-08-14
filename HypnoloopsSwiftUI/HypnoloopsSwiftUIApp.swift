@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct HypnoloopsSwiftUIApp: App {
+    @StateObject private var networkManager = NetworkManager()
 
     init() {
         FirebaseApp.configure()
@@ -24,8 +25,10 @@ struct HypnoloopsSwiftUIApp: App {
             NavigationView {
                 if Auth.auth().currentUser == nil {
                     AuthenticationView()
+                        .environmentObject(networkManager)
                 } else {
-                    RecordView()
+                    HypnoTabView()
+                        .environmentObject(networkManager)
                 }
             }
         }

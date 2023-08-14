@@ -59,11 +59,11 @@
 		E868661D2A804EA20092605B /* HypnoValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868661C2A804EA20092605B /* HypnoValidationError.swift */; };
 		E8714E642A7CAD7700D6BF64 /* DataImportManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */; };
 		E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */; };
-		E890EAE62A86FF19003DA56D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890EAE52A86FF19003DA56D /* WelcomeView.swift */; };
-		E890EAE82A8700BA003DA56D /* WelcomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890EAE72A8700BA003DA56D /* WelcomViewModel.swift */; };
 		E890EAEA2A870363003DA56D /* AudioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890EAE92A870363003DA56D /* AudioButton.swift */; };
 		E890EAEC2A8712E0003DA56D /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890EAEB2A8712E0003DA56D /* NavigationButton.swift */; };
 		E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D097812A77556700850A1E /* AuthenticationViewModel.swift */; };
+		E8D115612A89B307005FC139 /* HypnoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D115602A89B307005FC139 /* HypnoTabView.swift */; };
+		E8D115632A89B462005FC139 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D115622A89B462005FC139 /* ProfileView.swift */; };
 		E8DAC1292A8305E500765CA7 /* HypnoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAC1282A8305E500765CA7 /* HypnoAlertView.swift */; };
 		E8F104202A82CAB300B454E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8F1041F2A82CAB300B454E8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -95,11 +95,11 @@
 		E868661C2A804EA20092605B /* HypnoValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoValidationError.swift; sourceTree = "<group>"; };
 		E8714E632A7CAD7700D6BF64 /* DataImportManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImportManageable.swift; sourceTree = "<group>"; };
 		E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		E890EAE52A86FF19003DA56D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		E890EAE72A8700BA003DA56D /* WelcomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewModel.swift; sourceTree = "<group>"; };
 		E890EAE92A870363003DA56D /* AudioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioButton.swift; sourceTree = "<group>"; };
 		E890EAEB2A8712E0003DA56D /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		E8D097812A77556700850A1E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		E8D115602A89B307005FC139 /* HypnoTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoTabView.swift; sourceTree = "<group>"; };
+		E8D115622A89B462005FC139 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E8DAC1282A8305E500765CA7 /* HypnoAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoAlertView.swift; sourceTree = "<group>"; };
 		E8F1041F2A82CAB300B454E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,8 +151,7 @@
 				E02E77012A7A1950007384CE /* SavedRecordingsView.swift */,
 				E02E77032A7A1958007384CE /* SoundScapeView.swift */,
 				E02E77052A7A195F007384CE /* PlaySettingsView.swift */,
-				E890EAE52A86FF19003DA56D /* WelcomeView.swift */,
-				E890EAE72A8700BA003DA56D /* WelcomViewModel.swift */,
+				E8D115622A89B462005FC139 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +217,7 @@
 				4D2C83D22A7C22BF0033834B /* Views */,
 				E8D097832A77569100850A1E /* Authentication */,
 				E855B3012A773554009221E8 /* HypnoloopsSwiftUIApp.swift */,
+				E8D115602A89B307005FC139 /* HypnoTabView.swift */,
 				E855B3052A773557009221E8 /* Assets.xcassets */,
 				E855B3072A773557009221E8 /* Preview Content */,
 			);
@@ -357,11 +357,12 @@
 				4D2C83DC2A7C46970033834B /* Affirmations.swift in Sources */,
 				E86866152A7FD88D0092605B /* NetworkManager.swift in Sources */,
 				E86866172A7FD9470092605B /* HypnoError.swift in Sources */,
-				E890EAE62A86FF19003DA56D /* WelcomeView.swift in Sources */,
 				E806068A2A78889D00090DF2 /* CreateAccountViewModel.swift in Sources */,
 				E86866112A7FD75B0092605B /* NetworkManageable.swift in Sources */,
 				E868661D2A804EA20092605B /* HypnoValidationError.swift in Sources */,
 				E855B3042A773554009221E8 /* AuthenticationView.swift in Sources */,
+				E8D115632A89B462005FC139 /* ProfileView.swift in Sources */,
+				E8D115612A89B307005FC139 /* HypnoTabView.swift in Sources */,
 				E8714E642A7CAD7700D6BF64 /* DataImportManageable.swift in Sources */,
 				E02E77042A7A1958007384CE /* SoundScapeView.swift in Sources */,
 				E86866132A7FD7AE0092605B /* UserData.swift in Sources */,
@@ -369,7 +370,6 @@
 				4D2C83DE2A7C4A580033834B /* DataImportManager.swift in Sources */,
 				E02E77002A7A1944007384CE /* PlayView.swift in Sources */,
 				4D2C83D62A7C23320033834B /* CategoryView.swift in Sources */,
-				E02E770A2A7AC222007384CE /* RecordView2.swift in Sources */,
 				E890EAEC2A8712E0003DA56D /* NavigationButton.swift in Sources */,
 				E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */,
 				4D46631B2A7D4A4300C00520 /* CategorySectionRow.swift in Sources */,
@@ -377,7 +377,6 @@
 				E855B3022A773554009221E8 /* HypnoloopsSwiftUIApp.swift in Sources */,
 				E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */,
 				E02E77062A7A195F007384CE /* PlaySettingsView.swift in Sources */,
-				E890EAE82A8700BA003DA56D /* WelcomViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
