@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-class AudioCoordinator: NSObject, ObservableObject, AVAudioPlayerDelegate {
+class AudioCoordinator: NSObject, ObservableObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     @Published var isRecording = false
     @Published var isPlaying = false
 
@@ -16,40 +16,68 @@ class AudioCoordinator: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
     func toggleRecording() {
         if isRecording {
-            let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
-            let settings: [String: Any] = [
-                AVFormatIDKey: Int(kAudioFormatLinearPCM),
-                AVSampleRateKey: 44100.0,
-                AVNumberOfChannelsKey: 1,
-                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-            ]
-
-            do {
-                audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-                audioRecorder?.record()
-            } catch {
-                print("Error recording audio: \(error)")
-            }
+            stopRecording()
         } else {
-            audioRecorder?.stop()
-            audioRecorder = nil
+            startRecording()
         }
     }
 
     func togglePlayback() {
         if isPlaying {
-            let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
-                audioPlayer?.delegate = self
-                audioPlayer?.play()
-            } catch {
-                print("Error playing audio: \(error)")
-            }
+            stopPlayback()
         } else {
-            audioPlayer?.stop()
-            audioPlayer = nil
+            startPlayback()
         }
+    }
+
+    private func startRecording() {
+        let uniqueFilename = generateUniqueName()
+        let audioFilename = getDocumentsDirectory().appendingPathComponent(uniqueFilename)
+        let settings: [String: Any] = [
+            AVFormatIDKey: Int(kAudioFormatLinearPCM),
+            AVSampleRateKey: 44100.0,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder?.delegate = self
+            audioRecorder?.record()
+            isRecording = true
+        } catch {
+            print("Error recording audio: \(error)")
+        }
+    }
+
+    private func stopRecording() {
+        audioRecorder?.stop()
+        audioRecorder = nil
+        isRecording = false
+    }
+
+    private func startPlayback() {
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+            audioPlayer?.delegate = self
+            audioPlayer?.play()
+            isPlaying = true
+        } catch {
+            print("Error playing audio: \(error)")
+        }
+    }
+
+    private func stopPlayback() {
+        audioPlayer?.stop()
+        audioPlayer = nil
+        isPlaying = false
+    }
+
+    private func generateUniqueName() -> String {
+        let uuid = UUID().uuidString
+        let uniqueString = "\(uuid).wav"
+        return uniqueString
     }
 
     private func getDocumentsDirectory() -> URL {
@@ -60,3 +88,4 @@ class AudioCoordinator: NSObject, ObservableObject, AVAudioPlayerDelegate {
         isPlaying = false
     }
 }
+
