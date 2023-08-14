@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecordView: View {
     @State private var sliderValue: Double = 0
+    @ObservedObject private var audioCoordinator = AudioCoordinator()
     
     var body: some View {
         VStack {
@@ -67,45 +68,13 @@ struct RecordView: View {
                 }
             }
             HStack(alignment: .center) { // Record and Play Buttons
-                Button(action: {
-                    // insert your action here
-                    print("Button pressed!")
-                }) {
-                    VStack {
-                        Text("Record")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding(5)
-                            
-                        Image(systemName: "record.circle")
-                            .font(.title)
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .padding(.all, 5)
-                    .background(Circle().fill(Color.red))
-                }
-                .padding(.horizontal, 10)
-                    
-                Button(action: {
-                    // insert your action here
-                    print("Button pressed!")
-                }) {
-                    VStack {
-                        Text("Play")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding(5)
-                            
-                        Image(systemName: "play.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .padding(5)
-                    .background(Circle().fill(Color.hlBlue))
-                }
-                .padding(.horizontal, 10)
+
+                AudioButton(type: .record, coordinator: audioCoordinator)
+                    .disabled(audioCoordinator.isPlaying)
+                    .padding(.horizontal, 20)
+                AudioButton(type: .play, coordinator: audioCoordinator)
+                    .disabled(audioCoordinator.isRecording)
+                    .padding(.horizontal, 20)
             }
             .padding(20)
         }
