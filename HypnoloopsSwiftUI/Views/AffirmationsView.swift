@@ -11,11 +11,16 @@ struct AffirmationsView: View {
     var affirmations: [Affirmation]
 
     var body: some View {
-        List {
+        ScrollView {
             ForEach(affirmations, id: \.self) { affirmation in
-                Text(affirmation.affirmation)
-                    .foregroundStyle(.white)
-                    .listRowBackground(Color.hLoopIndigo)
+                HStack() {
+                    Text(affirmation.affirmation)
+                        .foregroundStyle(.white)
+                    Spacer()
+                    Image(systemName: "heart")
+                        .foregroundStyle(Color.hlBlue)
+                }
+                .padding()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
