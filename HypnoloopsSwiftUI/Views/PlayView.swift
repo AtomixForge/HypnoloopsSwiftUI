@@ -11,6 +11,8 @@ struct PlayView: View {
   
     @State private var activeSheet: ActiveSheet?
     @State private var settingsDetent = PresentationDetent.medium
+
+    @ObservedObject private var audioCoordinator = AudioCoordinator()
     
     enum ActiveSheet: Identifiable {
         case settings, soundScape, recordings
@@ -28,6 +30,7 @@ struct PlayView: View {
                 Image(systemName: "waveform.path")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.hlBlue)
                     .frame(width: 200, height:150, alignment: .center)
                     .padding(.horizontal, 10)
             }
@@ -46,7 +49,7 @@ struct PlayView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding(10)
-                            .background(Color.blue)
+                            .background(Color.hlBlue)
                             .cornerRadius(8)
                         }
                         .buttonStyle(.plain)
@@ -68,7 +71,7 @@ struct PlayView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding(10)
-                            .background(Color.blue)
+                            .background(Color.hlBlue)
                             .cornerRadius(8)
                         }
                         .buttonStyle(.plain)
@@ -115,25 +118,8 @@ struct PlayView: View {
             .listRowInsets(EdgeInsets())
             //.background(.darkGray)
             //.scrollContentBackground(.hidden)
-            
-            Button(action: {
-                // insert your action here
-                print("Button pressed!")
-            }) {
-                VStack {
-                    Text("Play")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(5)
-                    
-                    Image(systemName: "play.fill")
-                        .font(.title)
-                        .foregroundColor(.white)
-                }
-                .frame(width: 100, height: 100, alignment: .center)
-                .padding(.all, 5)
-                .background(Circle().fill(Color.blue))
-            }
+
+            AudioButton(type: .play, coordinator: audioCoordinator)
             .padding(20)
             
         }

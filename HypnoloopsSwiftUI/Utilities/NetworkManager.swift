@@ -10,7 +10,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import Foundation
 
-class NetworkManager: NetworkManageable {
+class NetworkManager: NetworkManageable, ObservableObject {
     func createUserWithEmailPassword(email: String, password: String) async throws {
         do {
             try await Auth.auth().createUser(withEmail: email, password: password)
@@ -69,6 +69,14 @@ class NetworkManager: NetworkManageable {
         let reference = Database.database().reference()
         let affirmationIds = reference.child("users").child(uid).child("likedAffirmations")
         affirmationIds.setValue(likedAffirmationIds)
+    }
+
+    func signOut() throws {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            throw error
+        }
     }
 
     private func setValueAsync(_ ref: DatabaseReference, value: Any) async throws {
