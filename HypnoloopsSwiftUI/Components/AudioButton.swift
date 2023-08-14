@@ -56,10 +56,6 @@ struct AudioButton: View {
             return coordinator.isPlaying ? .red : .primary
         }
     }
-
-    
-
-    
 }
 
 struct AudioButton_Previews: PreviewProvider {
@@ -69,6 +65,12 @@ struct AudioButton_Previews: PreviewProvider {
             HStack(spacing: 20) {
                 AudioButton(type: .record, coordinator: coordinator)
                 AudioButton(type: .play, coordinator: coordinator)
+            }
+            HStack(spacing: 20) {
+                AudioButton(type: .record, coordinator: coordinator)
+                    .disabled(true)
+                AudioButton(type: .play, coordinator: coordinator)
+                    .disabled(true)
             }
         }
     }
