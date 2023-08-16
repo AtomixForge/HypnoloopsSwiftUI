@@ -11,7 +11,7 @@ struct HypnoTabView: View {
     var body: some View {
         TabView {
             NavigationView {
-                PlayView()
+                RecordView()
             }
             .tabItem {
                 Image(systemName: "house")
@@ -19,7 +19,7 @@ struct HypnoTabView: View {
             }
 
             NavigationView {
-                RecordView()
+                PlayView()
             }
             .tabItem {
                 Image(systemName: "mic")
