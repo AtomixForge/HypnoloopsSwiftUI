@@ -11,6 +11,8 @@ import Firebase
 @main
 struct HypnoloopsSwiftUIApp: App {
     @StateObject private var networkManager = NetworkManager()
+    @StateObject private var dataImportManager = DataImportManager()
+    
 
     init() {
         FirebaseApp.configure()
@@ -29,6 +31,7 @@ struct HypnoloopsSwiftUIApp: App {
                 } else {
                     HypnoTabView()
                         .environmentObject(networkManager)
+                        .environmentObject(dataImportManager)
                 }
             }
         }

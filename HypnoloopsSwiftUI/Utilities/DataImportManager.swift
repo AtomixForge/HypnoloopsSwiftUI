@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataImportManager: DataImportManageable {
+class DataImportManager: DataImportManageable, ObservableObject {
 
     func parseJSON() -> [CategorySection] {
         guard let fileURL = Bundle.main.url(forResource: "Affirmations", withExtension: "json") else {
@@ -27,7 +27,7 @@ class DataImportManager: DataImportManageable {
                                 var affirmations: [Affirmation] = []
                                 for affirmationData in affirmationsData {
                                     if let id = affirmationData["id"] as? String, let affirmation = affirmationData["affirmation"] as? String {
-                                        let liked = false // Set liked to false for each affirmation
+                                        let liked = false
                                         let affirmationObj = Affirmation(id: id, affirmation: affirmation, liked: liked)
                                         affirmations.append(affirmationObj)
                                     }

@@ -12,7 +12,7 @@ struct AffirmationsView: View {
 
     var body: some View {
         ScrollView {
-            ForEach(affirmations, id: \.self) { affirmation in
+            ForEach(affirmations, id: \.id) { affirmation in
                 HStack() {
                     Text(affirmation.affirmation)
                         .foregroundStyle(.white)

@@ -7,18 +7,20 @@
 
 import Foundation
 
-struct Affirmation: Decodable, Hashable {
+struct Affirmation  {
     let id: String
     let affirmation: String
     var liked: Bool
 }
 
-struct Category: Decodable, Hashable {
+struct Category {
+    let id = UUID()
     let title: String
     let affirmations: [Affirmation]
 }
 
-struct CategorySection: Decodable, Hashable {
+struct CategorySection: Identifiable {
+    let id = UUID()
     let title: String
     let categories: [Category]
 }

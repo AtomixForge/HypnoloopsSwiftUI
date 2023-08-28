@@ -62,6 +62,9 @@
 		E8714E662A7CAE8000D6BF64 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */; };
 		E890EAEA2A870363003DA56D /* AudioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890EAE92A870363003DA56D /* AudioButton.swift */; };
 		E890EAEC2A8712E0003DA56D /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890EAEB2A8712E0003DA56D /* NavigationButton.swift */; };
+		E8AF9D802A8C6405005C02C9 /* SectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF9D7F2A8C6405005C02C9 /* SectionListView.swift */; };
+		E8AF9D822A8C6B24005C02C9 /* CategorySectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF9D812A8C6B24005C02C9 /* CategorySectionCardView.swift */; };
+		E8AF9D842A8C71E7005C02C9 /* CategorySectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF9D832A8C71E7005C02C9 /* CategorySectionButton.swift */; };
 		E8D097822A77556700850A1E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D097812A77556700850A1E /* AuthenticationViewModel.swift */; };
 		E8D115612A89B307005FC139 /* HypnoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D115602A89B307005FC139 /* HypnoTabView.swift */; };
 		E8D115632A89B462005FC139 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D115622A89B462005FC139 /* ProfileView.swift */; };
@@ -100,6 +103,9 @@
 		E8714E652A7CAE8000D6BF64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		E890EAE92A870363003DA56D /* AudioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioButton.swift; sourceTree = "<group>"; };
 		E890EAEB2A8712E0003DA56D /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		E8AF9D7F2A8C6405005C02C9 /* SectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionListView.swift; sourceTree = "<group>"; };
+		E8AF9D812A8C6B24005C02C9 /* CategorySectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionCardView.swift; sourceTree = "<group>"; };
+		E8AF9D832A8C71E7005C02C9 /* CategorySectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionButton.swift; sourceTree = "<group>"; };
 		E8D097812A77556700850A1E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		E8D115602A89B307005FC139 /* HypnoTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoTabView.swift; sourceTree = "<group>"; };
 		E8D115622A89B462005FC139 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 				E02E77052A7A195F007384CE /* PlaySettingsView.swift */,
 				4D96D8882A870432003AF5C7 /* AffirmationsView.swift */,
 				E8D115622A89B462005FC139 /* ProfileView.swift */,
+				E8AF9D7F2A8C6405005C02C9 /* SectionListView.swift */,
+				E8AF9D812A8C6B24005C02C9 /* CategorySectionCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 				E890EAE92A870363003DA56D /* AudioButton.swift */,
 				E8D115642A89C5E6005FC139 /* AudioCoordinator.swift */,
 				E890EAEB2A8712E0003DA56D /* NavigationButton.swift */,
+				E8AF9D832A8C71E7005C02C9 /* CategorySectionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -355,6 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8AF9D822A8C6B24005C02C9 /* CategorySectionCardView.swift in Sources */,
+				E8AF9D802A8C6405005C02C9 /* SectionListView.swift in Sources */,
 				E806068E2A78939500090DF2 /* AsyncActionButton.swift in Sources */,
 				E80606902A78974500090DF2 /* AuthenticationButtonStyle.swift in Sources */,
 				E890EAEA2A870363003DA56D /* AudioButton.swift in Sources */,
@@ -376,6 +387,7 @@
 				4D2C83DE2A7C4A580033834B /* DataImportManager.swift in Sources */,
 				E02E77002A7A1944007384CE /* PlayView.swift in Sources */,
 				4D2C83D62A7C23320033834B /* CategoryView.swift in Sources */,
+				E8AF9D842A8C71E7005C02C9 /* CategorySectionButton.swift in Sources */,
 				E890EAEC2A8712E0003DA56D /* NavigationButton.swift in Sources */,
 				E80606882A78866700090DF2 /* CreateAccountView.swift in Sources */,
 				4D46631B2A7D4A4300C00520 /* CategorySectionRow.swift in Sources */,

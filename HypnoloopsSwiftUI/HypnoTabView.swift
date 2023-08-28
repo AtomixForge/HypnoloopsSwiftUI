@@ -9,52 +9,44 @@ import SwiftUI
 
 struct HypnoTabView: View {
     var body: some View {
-        TabView {
-            NavigationView {
+            TabView {
                 RecordView()
-            }
-            .tabItem {
-                Image(systemName: "house")
-                Text("Home")
-            }
+                    .tabItem {
+                        Image(systemName: "house")
+                        Text("Home")
+                    }
 
-            NavigationView {
                 PlayView()
-            }
-            .tabItem {
-                Image(systemName: "mic")
-                Text("Record")
-            }
+                    .tabItem {
+                        Image(systemName: "mic")
+                        Text("Record")
+                    }
 
-            NavigationView {
-                Text("Affirmations")
-            }
-            .tabItem {
-                Image(systemName: "square.grid.2x2")
-                Text("Affirmations")
-            }
+                SectionListView(viewModel: SectionListViewModel())
+                    .tabItem {
+                        Image(systemName: "square.grid.2x2")
+                        Text("Affirmations")
+                    }
 
-            NavigationView {
                 Text("Likes")
-            }
-            .tabItem {
-                Image(systemName: "heart")
-                Text("Likes")
-            }
+                    .tabItem {
+                        Image(systemName: "heart")
+                        Text("Likes")
+                    }
 
-            NavigationView {
                 ProfileView()
+                    .tabItem {
+                        Image(systemName: "person")
+                        Text("Me")
+                    }
             }
-            .tabItem {
-                Image(systemName: "person")
-                Text("Me")
-            }
-        }
     }
 }
 
+
 struct HypnoTabView_Previews: PreviewProvider {
+    static let sectionListVM = SectionListViewModel()
     static var previews: some View {
-        HypnoTabView()
+       HypnoTabView()
     }
 }
