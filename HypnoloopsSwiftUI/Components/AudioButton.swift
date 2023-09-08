@@ -19,12 +19,35 @@ struct AudioButton: View {
 
     var body: some View {
         Button(action: {
-            if type == .record {
-                coordinator.isRecording.toggle()
+            print("IS RECORDING: ", coordinator.isRecording)
+
+            switch type {
+            case .record:
+                if coordinator.isRecording {
+                    coordinator.toggleRecording()
+                    coordinator.isRecording = false
+                } else {
+                    coordinator.toggleRecording()
+                    coordinator.isRecording = true
+                }
+            case .play:
+                if coordinator.isPlaying {
+                    coordinator.togglePlayback()
+                    coordinator.isPlaying = false
+                } else {
+                    coordinator.togglePlayback()
+                    coordinator.isPlaying = true
+                }
+            }
+
+
+            switch type {
+            case .record:
                 coordinator.toggleRecording()
-            } else {
-                coordinator.isPlaying.toggle()
+                coordinator.isRecording.toggle()
+            case .play:
                 coordinator.togglePlayback()
+                coordinator.isPlaying.toggle()
             }
         }) {
             Circle()
@@ -42,7 +65,7 @@ struct AudioButton: View {
     private var imageName: String {
         switch type {
         case .record:
-            return coordinator.isRecording ? "mic.fill" : "mic"
+            return coordinator.isRecording ? "stop.fill" : "mic"
         case .play:
             return coordinator.isPlaying ? "stop.fill" : "play.fill"
         }

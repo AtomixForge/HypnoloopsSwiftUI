@@ -10,74 +10,81 @@ import SwiftUI
 struct RecordView: View {
     @State private var sliderValue: Double = 0
     @ObservedObject private var audioCoordinator = AudioCoordinator()
-    
+
     var body: some View {
         VStack {
-            VStack {
-                Image(systemName: "waveform.path")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 150, alignment: .center)
-                    .padding(.horizontal, 10)
-                    .foregroundColor(.hlBlue)
-            }
+                waveformImage
+
             List {
-                Section("Category of affirmation") {
-                    HStack {
-                        Text("Your affirmation will display here...")
-                            .font(.subheadline)
+                Section(header: Text("Category of affirmation")) {
+                    categoryAffirmationView
+                }
+
+                Section(header: Text("Name and save your recording")) {
+                    fileNameInputView
+
+                    Button(action: {
+
+                        print("Save button pressed!")
+                    }) {
+                        Text("Save")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(Color.hlBlue)
+                            .cornerRadius(8)
                     }
                 }
-                Section("Name and save youer recording") {
-                    HStack {
-                        HStack {
-                            Text("File Name")
-                                .font(.subheadline)
-                                                
-                            Spacer()
-                        }
-                        .padding(.trailing, 5)
-                        
-                        HStack {
-                            Button(action: {
-                                // insert your action here
-                                print("Save button pressed!")
-                            }) {
-                                Text("Save")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 8)
-                                    .background(Color.hlBlue)
-                                    .cornerRadius(8)
-                            }
-                        }
-                    }
-                }
-                Section("This may be deleted") {
+
+                Section(header: Text("This may be deleted")) {
                     HStack {
                         Text("Reverb")
                             .font(.subheadline)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 5)
                         Slider(value: $sliderValue, in: 0 ... 50, step: 5) {
-                            Text("")
+                            Text("Reverb Slider")
                         }
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
-            HStack(alignment: .center) { // Record and Play Buttons
 
+            HStack(alignment: .center) {
                 AudioButton(type: .record, coordinator: audioCoordinator)
-                    .disabled(audioCoordinator.isPlaying)
+//                    .disabled(audioCoordinator.isPlaying)
                     .padding(.horizontal, 20)
+
                 AudioButton(type: .play, coordinator: audioCoordinator)
-                    .disabled(audioCoordinator.isRecording)
+//                    .disabled(audioCoordinator.isRecording)
                     .padding(.horizontal, 20)
             }
             .padding(20)
         }
+    }
+
+    private var waveformImage: some View {
+        Image(systemName: "waveform.path")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 200, height: 150, alignment: .center)
+            .padding(.horizontal, 10)
+            .foregroundColor(.hlBlue)
+    }
+
+    private var categoryAffirmationView: some View {
+        Text("Your affirmation will display here...")
+            .font(.subheadline)
+    }
+
+    private var fileNameInputView: some View {
+        HStack {
+            Text("File Name")
+                .font(.subheadline)
+            Spacer()
+        }
+        .padding(.trailing, 5)
     }
 }
 

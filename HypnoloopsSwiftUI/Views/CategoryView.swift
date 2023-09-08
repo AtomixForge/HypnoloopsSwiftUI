@@ -20,7 +20,7 @@ struct CategoryView: View {
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
-                ForEach(viewModel.sections, id: \.self) { section in
+                ForEach(viewModel.sections, id: \.id) { section in
                     CategorySectionRow(section: section)
                 }
             }

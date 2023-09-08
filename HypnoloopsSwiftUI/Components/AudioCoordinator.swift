@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-class AudioCoordinator: NSObject, ObservableObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+final class AudioCoordinator: NSObject, ObservableObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     @Published var isRecording = false
     @Published var isPlaying = false
 
